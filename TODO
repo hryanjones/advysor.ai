@@ -1,3 +1,21 @@
+# Basic Website
+
+- Apply theming
+  - colors
+  - fonts
+- Extract the SVG of the logo and use it in favicon and header
+- Add icons: https://lineicons.com/icons?q=target seems good
+- Proof read
+- Redesign sections to be neater than just rounded boxes
+
+# Adding in the thing to collect emails
+
+1. Needs technical design - perhaps a lamda that writes to a DDB table or can do something simpler with mailchimp?
+
+
+## low priority
+- navigation
+
 # Dev happiness
 
 - add husky (for git hooks)

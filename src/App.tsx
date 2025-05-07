@@ -1,13 +1,8 @@
 import 'react';
+import Homepage from './components/Homepage';
 
 function App() {
-  return (
-    <>
-      <header className="text-3xl font-bold underline">
-        Hello world!
-      </header>
-    </>
-  );
+  return <Homepage />;
 }
 
 export default App;
