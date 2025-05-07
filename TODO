@@ -1,0 +1,4 @@
+# Dev happiness
+
+- add husky (for git hooks)
+- do formatting check (and actual formatting?) on pre commit
