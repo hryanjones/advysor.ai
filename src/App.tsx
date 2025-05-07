@@ -3,7 +3,7 @@ import 'react';
 function App() {
   return (
     <>
-      <header>
+      <header className="text-3xl font-bold underline">
         Hello world!
       </header>
     </>
