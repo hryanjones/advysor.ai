@@ -1,53 +1,37 @@
+/* FIXME 1: Need this or just below? */
 @import "tailwindcss";
 
+/* FIXME 1: Need this or just above? */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-body {
-  margin-top: 0;
+  --background: #1A133D;
+  --primary-text: #E8F1FF;
+  --accent-gradient-start: #00D1FF;
+  --accent-gradient-middle: #6C47FF;
+  --accent-gradient-end: #E84CFF;
+  --cta-highlight: #3FFFD4;
 }
 
-#root {
-  max-width: 720px;
+.bg-background {
+  background-color: var(--background);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.text-primary-text {
+  color: var(--primary-text);
 }
 
-label.active {
-  font-weight: bold;
-  text-decoration: underline;
+.bg-accent-gradient {
+  background-image: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-middle), var(--accent-gradient-end));
 }
 
-label.active::before {
-  content: "showing ";
+.bg-cta {
+  background-color: var(--cta-highlight);
+  color: var(--background);
 }
 
-small {
-  font-size: 40%;
-}
-
-table,
-thead,
-tbody,
-th,
-td {
-  background-color: white;
-}
-
-th {
-  border-bottom: 1px solid currentColor;
+.bg-cta:hover {
+  background-color: var(--accent-gradient-start);
 }
