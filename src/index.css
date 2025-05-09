@@ -7,16 +7,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #1A133D;
-  --primary-text: #E8F1FF;
-  --accent-gradient-start: #00D1FF;
-  --accent-gradient-middle: #6C47FF;
-  --accent-gradient-end: #E84CFF;
-  --cta-highlight: #3FFFD4;
+  --background: #1a133d;
+  --primary-text: #e8f1ff;
+  --accent-gradient-start: #00d1ff;
+  --accent-gradient-middle: #6c47ff;
+  --accent-gradient-end: #e84cff;
+  --cta-highlight: #3fffd4;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .bg-background {
@@ -28,7 +28,12 @@ body {
 }
 
 .bg-accent-gradient {
-  background-image: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-middle), var(--accent-gradient-end));
+  background-image: linear-gradient(
+    90deg,
+    var(--accent-gradient-start),
+    var(--accent-gradient-middle),
+    var(--accent-gradient-end)
+  );
 }
 
 .bg-cta {
