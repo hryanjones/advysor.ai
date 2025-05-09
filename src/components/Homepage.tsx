@@ -1,4 +1,3 @@
-import React from 'react';
 import { FiZap, FiTool, FiCheck, FiMail, FiUser, FiCode, FiTarget, FiFileText, FiMessageSquare } from 'react-icons/fi';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
@@ -11,7 +10,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background text-primary-text p-4 flex flex-col items-center">
       {/* Sticky Navbar */}
       <div className="w-full bg-background shadow-md fixed top-0 left-0 p-4 flex items-center z-10 gap-2">
-        <img src="/public/advysor-brand.png" alt="Advysor.ai logo" className="size-9" />
+        <img src="/advysor-brand.png" alt="Advysor.ai logo" className="size-9" />
         <span className="text-3xl font-bold bg-accent-gradient bg-clip-text text-transparent">ADVYSOR.AI</span>
       </div>
 
