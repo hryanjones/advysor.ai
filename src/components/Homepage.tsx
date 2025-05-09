@@ -4,8 +4,11 @@ export default function HomePage() {
     return (
         <div className="min-h-screen bg-background text-primary-text p-4 flex flex-col items-center">
             {/* Sticky Navbar */}
-            <div className="w-full bg-background shadow-md fixed top-0 left-0 p-4 flex justify-between items-center z-10">
-                <span className="text-xl font-bold bg-accent-gradient bg-clip-text text-transparent">🧭 ADVYSOR.AI</span>
+            <div className="w-full bg-background shadow-md fixed top-0 left-0 p-4 flex items-center z-10 gap-2">
+                <img src="/public/advysor-brand.png" className="size-9"></img>
+                <span className="text-xl font-bold bg-accent-gradient bg-clip-text text-transparent">
+                    ADVYSOR.AI
+                </span>
             </div>
 
             {/* Main Content */}
