@@ -8,17 +8,22 @@ This directory contains AWS CDK code for deploying the Advysor.ai static website
 
 ### Bootstrap (once per account)
 
+⚠️ **NOTE:** resources must be created in us-east-1 (SSL cert requirement)
+
 Following must be run with an **Admin** user that has the ability to create IAM resources.
 
-`npx cdk bootstrap -c domain=advysor.hryanjones.com --profile TempAdmin`
+`npx cdk bootstrap -c domain=advysorai.hryanjones.com --profile TempAdmin`
 
 ### Deploy
 
 This can be a PowerUser (or just have access to services needed)
 
-`npx cdk deploy -c domain=advysor.hryanjones.com --profile AdvysorTestingPowerUser -all`
+`npx cdk deploy -c domain=advysorai.hryanjones.com --profile AdvysorTestingPowerUser -all`
 
 (can also drop the `--all` to specify a single stack -> perhaps a fast way to just deploy after all the resources are set up?)
+
+**NOTE**: Creation of some things need a manual step
+1. creating the SSL cert, see instructions for pending certificate in the Console
 
 ----
 

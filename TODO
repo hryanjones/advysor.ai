@@ -1,27 +1,29 @@
 # Basic Website
 
-- ~~Apply theming~~
+- ✅ ~~Apply theming~~
   - ~~colors~~
   - ~~fonts~~
-- ~~Extract the SVG of the logo and use it in favicon and header~~ (pivoted to PNG)
-- ~~Add icons: https://lineicons.com/icons?q=target seems good~~ (used react-icons instead)
-- ~~Proof read~~
-- Redesign sections to be neater than just rounded boxes
+- ✅ ~~Extract the SVG of the logo and use it in favicon and header~~ (pivoted to PNG)
+- ✅ ~~Add icons: https://lineicons.com/icons?q=target seems good~~ (used react-icons instead)
+- ✅ ~~Proof read~~
+- ✅ ~~Redesign sections to be neater than just rounded boxes~~ (only change here was the first hero sections)
 - Serving assets from AWS:
+  - ~~S3 bucket~~
+  - ~~cloudfront + SSL certificate~~
   - Route53 DNS control
-  - S3 bucket
-  - SSL certificate
-  - cloudfront
+  - deployment of assets
 
 # Adding in the thing to collect emails
 
-1. Needs technical design - perhaps a lamda that writes to a DDB table or can do something simpler with mailchimp?
+1. Needs technical design - explore the simplest options to achieve collecting. Could be mailchimp or dumping in a google sheet or something similarly simple.
 
 ## low priority
 - navigation
+- custom 404 page (TODO: test whether cloudfront just shows the homepage and if that will work, might need a redirection...)
 - [UX Design] make the icon an SVG for crispness and re-use (ChatGPT did a poor job and was too much work to create)
 
 # Dev happiness
 
-- add husky (for git hooks)
+- add husky (for git hooks for formatting)
 - do formatting check (and actual formatting?) on pre commit
+- (after rounds of feedback on design): generalize the hero sections and other parts into components so the code isn't such a mess
