@@ -4,6 +4,7 @@ import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
 import { BsRocket, BsStars } from 'react-icons/bs';
 import { GiCrystalBall } from 'react-icons/gi';
+import { TbMailbox, TbTargetArrow } from 'react-icons/tb';
 
 export default function HomePage() {
   return (
@@ -177,19 +178,36 @@ export default function HomePage() {
       </div>
 
       {/* Call to Action Section */}
-      <div className="max-w-4xl w-full bg-background mt-8">
-        <div className="flex gap-2 justify-center">
-          <a
-            href="#"
-            className="bg-accent-gradient text-background px-6 py-3 rounded-lg hover:bg-cta inline-flex gap-2 items-center"
-          >
-            Try Advysor on ChatGPT
-            <FaArrowUpRightFromSquare className="text-accent size-4 flex-shrink-0" />
-          </a>
-
-          <a href="#" className="bg-cta text-background px-6 py-3 rounded-lg inline-flex items-center gap-2">
-            <FiMail className="size-5 flex-shrink-0" /> Join the Waitlist
-          </a>
+      <div className="max-w-4xl w-full bg-background border border-[#6C47FF] rounded-2xl shadow-lg p-8 mt-8">
+        <div className="flex flex-col gap-10">
+          <div>
+            <h3 className="text-xl font-bold mb-4 flex items-start gap-2">
+              <TbTargetArrow className="text-accent size-7 flex-shrink-0" /> Want to validate your startup idea right
+              now?
+            </h3>
+            <p className="mb-4">Try the current version free via ChatGPT.</p>
+            <div className="text-center">
+              <a
+                href="#"
+                className="bg-accent-gradient text-background px-6 py-3 rounded-lg hover:bg-cta inline-flex gap-2 items-center"
+              >
+                Try Advysor on ChatGPT
+                <FaArrowUpRightFromSquare className="text-accent size-4 flex-shrink-0" />
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold mb-4 flex items-start gap-2">
+              <TbMailbox className="text-accent size-7 flex-shrink-0" /> Want early access to the full version with pro
+              features?
+            </h3>
+            <p className="mb-4">Join the waitlist and be the first to try our next release.</p>
+            <div className="text-center">
+              <a href="#" className="bg-cta text-background px-6 py-3 rounded-lg inline-flex items-center gap-2">
+                <FiMail className="size-5 flex-shrink-0" /> Join the Waitlist
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

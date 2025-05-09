@@ -5,7 +5,7 @@
   - ~~fonts~~
 - ~~Extract the SVG of the logo and use it in favicon and header~~ (pivoted to PNG)
 - ~~Add icons: https://lineicons.com/icons?q=target seems good~~ (used react-icons instead)
-- Proof read
+- ~~Proof read~~
 - Redesign sections to be neater than just rounded boxes
 - Serving assets from AWS:
   - Route53 DNS control
