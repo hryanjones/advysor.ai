@@ -14,11 +14,19 @@ export class DNSStack extends cdk.Stack {
     super(scope, id, props);
 
     // Split domain into parts
+    let parentDomain = props.domainName;
+    const subdomain = props.domainName;
     const domainParts = props.domainName.split('.');
-    const subdomain = domainParts[0];
-    const parentDomain = domainParts.slice(1).join('.');
+    if (domainParts.length > 2) {
+      parentDomain = domainParts.slice(-2).join('.');
+    }
 
-    // Look up the parent hosted zone
+    // Debugging outputs
+    console.log('Account:', props.env?.account);
+    console.log('Region:', props.env?.region);
+    console.log('Parent Domain:', parentDomain);
+    console.log('Sub Domain:', subdomain);
+
     const parentZone = route53.HostedZone.fromLookup(this, 'ParentZone', {
       domainName: parentDomain,
     });

@@ -8,11 +8,26 @@ import { DeploymentStack } from '../lib/deployment-stack';
 
 const app = new cdk.App();
 
-// Get domain name from context, defaulting to advysor.ai
-const domainName = app.node.tryGetContext('domain') || 'advysor.ai';
+// Get domain name from context
+const domainName = app.node.tryGetContext('domain') || '';
 
-const account = process.env.CDK_DEFAULT_ACCOUNT;
-const region = process.env.CDK_DEFAULT_REGION;
+console.log('Domain name from context:', domainName);
+console.log('CDK_DEFAULT_ACCOUNT:', process.env.CDK_DEFAULT_ACCOUNT);
+console.log('CDK_DEFAULT_REGION:', process.env.CDK_DEFAULT_REGION);
+
+if (!domainName) {
+  throw new Error('domain must be provided as context');
+}
+
+// const account = process.env.CDK_DEFAULT_ACCOUNT;
+// const region = process.env.CDK_DEFAULT_REGION;
+
+const account = '756021455880';
+const region = 'us-east-1';
+
+if (!account || !region) {
+  throw new Error('CDK_DEFAULT_ACCOUNT and CDK_DEFAULT_REGION must be set');
+}
 
 // Create the storage stack
 const storageStack = new StorageStack(app, 'AdvysorStorageStack', {

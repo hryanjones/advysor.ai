@@ -2,5 +2,9 @@
   "hosted-zone:account=378222576515:domainName=hryanjones.com:region=us-east-1": {
     "Id": "/hostedzone/Z1L7H93RRK1ASV",
     "Name": "hryanjones.com."
+  },
+  "hosted-zone:account=756021455880:domainName=advysor.ai:region=us-east-1": {
+    "Id": "/hostedzone/Z0378053YFF5N12G2TU2",
+    "Name": "advysor.ai."
   }
 }

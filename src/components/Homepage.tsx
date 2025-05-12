@@ -1,9 +1,18 @@
-import { FiZap, FiTool, FiCheck, FiMail, FiUser, FiCode, FiTarget, FiFileText, FiMessageSquare } from 'react-icons/fi';
+import {
+  FiZap,
+  FiTool,
+  FiCheck,
+  /*FiMail,*/ FiUser,
+  FiCode,
+  FiTarget,
+  FiFileText,
+  FiMessageSquare,
+} from 'react-icons/fi';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
 import { BsRocket, BsStars } from 'react-icons/bs';
 import { GiCrystalBall } from 'react-icons/gi';
-import { TbMailbox, TbTargetArrow } from 'react-icons/tb';
+import { /*TbMailbox, */ TbTargetArrow } from 'react-icons/tb';
 
 export default function HomePage() {
   return (
@@ -44,7 +53,7 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <a
-              href="#"
+              href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
               className="bg-accent-gradient text-background px-6 py-3 rounded-lg hover:bg-cta inline-flex gap-2 items-center"
             >
               Try it now on ChatGPT <FaArrowUpRightFromSquare className="text-accent size-4 flex-shrink-0" />
@@ -99,14 +108,14 @@ export default function HomePage() {
             collaboration
           </li>
         </ul>
-        <p className="mb-4">
+        {/* <p className="mb-4">
           Want early access when we launch the full version? Leave your email and we'll keep you in the loop.
         </p>
         <div className="text-center">
           <a href="#" className="bg-cta text-background px-6 py-3 rounded-lg inline-flex items-center gap-2">
             <FiMail className="size-5 flex-shrink-0" /> Join the Waitlist
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* Who It's For Section */}
@@ -187,7 +196,7 @@ export default function HomePage() {
             <p className="mb-4">Try the current version free via ChatGPT.</p>
             <div className="text-center">
               <a
-                href="#"
+                href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
                 className="bg-accent-gradient text-background px-6 py-3 rounded-lg hover:bg-cta inline-flex gap-2 items-center"
               >
                 Try Advysor on ChatGPT
@@ -195,7 +204,7 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold mb-4 flex items-start gap-2">
               <TbMailbox className="text-accent size-7 flex-shrink-0" /> Want early access to the full version with pro
               features?
@@ -206,7 +215,7 @@ export default function HomePage() {
                 <FiMail className="size-5 flex-shrink-0" /> Join the Waitlist
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
