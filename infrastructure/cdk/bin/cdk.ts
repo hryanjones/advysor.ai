@@ -4,6 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { StorageStack } from '../lib/storage-stack';
 import { CDNStack } from '../lib/cdn-stack';
 import { DNSStack } from '../lib/dns-stack';
+import { DeploymentStack } from '../lib/deployment-stack';
 
 const app = new cdk.App();
 
@@ -33,7 +34,7 @@ const cdnStack = new CDNStack(app, 'AdvysorCDNStack', {
 });
 
 // Create the DNS stack
-new DNSStack(app, 'AdvysorDNSStack', {
+const dnsStack = new DNSStack(app, 'AdvysorDNSStack', {
   env: {
     account,
     region,
@@ -41,3 +42,17 @@ new DNSStack(app, 'AdvysorDNSStack', {
   domainName,
   cdnStack,
 });
+
+// Create the deployment stack
+const deploymentStack = new DeploymentStack(app, 'AdvysorDeploymentStack', {
+  env: {
+    account,
+    region,
+  },
+  storageStack,
+});
+
+// Set explicit dependencies
+cdnStack.addDependency(storageStack);
+dnsStack.addDependency(cdnStack);
+deploymentStack.addDependency(storageStack);

@@ -1,5 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import type { Construct } from 'constructs';
 
 interface StorageStackProps extends cdk.StackProps {
@@ -15,8 +16,10 @@ export class StorageStack extends cdk.Stack {
     // Create the S3 bucket
     this.bucket = new s3.Bucket(this, 'WebsiteBucket', {
       bucketName: props.domainName,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ACLS,
       removalPolicy: cdk.RemovalPolicy.RETAIN, // Prevent accidental deletion
+      websiteIndexDocument: 'index.html',
+      websiteErrorDocument: 'index.html',
       cors: [
         {
           allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
@@ -26,6 +29,15 @@ export class StorageStack extends cdk.Stack {
         },
       ],
     });
+
+    // Add bucket policy to allow public read access
+    this.bucket.addToResourcePolicy(
+      new iam.PolicyStatement({
+        actions: ['s3:GetObject'],
+        resources: [this.bucket.arnForObjects('*')],
+        principals: [new iam.AnyPrincipal()],
+      }),
+    );
 
     // Output the bucket name and ARN
     new cdk.CfnOutput(this, 'BucketName', {
