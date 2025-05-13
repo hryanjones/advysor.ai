@@ -8,36 +8,43 @@ interface StorageStackProps extends cdk.StackProps {
 }
 
 export class StorageStack extends cdk.Stack {
-  public readonly bucket: s3.Bucket;
+  public readonly bucket: s3.IBucket;
 
   constructor(scope: Construct, id: string, props: StorageStackProps) {
     super(scope, id, props);
 
-    // Create the S3 bucket
-    this.bucket = new s3.Bucket(this, 'WebsiteBucket', {
-      bucketName: props.domainName,
-      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ACLS,
-      removalPolicy: cdk.RemovalPolicy.RETAIN, // Prevent accidental deletion
-      websiteIndexDocument: 'index.html',
-      websiteErrorDocument: 'index.html',
-      cors: [
-        {
-          allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
-          allowedOrigins: ['*'], // This will be restricted by CloudFront later
-          allowedHeaders: ['*'],
-          maxAge: 3000,
-        },
-      ],
-    });
+    // Try to import existing bucket first
+    try {
+      this.bucket = s3.Bucket.fromBucketName(this, 'ImportedBucket', props.domainName);
+      console.log(`Using existing bucket: ${props.domainName}`);
+    } catch (error) {
+      console.log(`Creating new bucket: ${props.domainName}`);
+      // Create the S3 bucket if it doesn't exist
+      this.bucket = new s3.Bucket(this, 'WebsiteBucket', {
+        bucketName: props.domainName,
+        blockPublicAccess: s3.BlockPublicAccess.BLOCK_ACLS,
+        removalPolicy: cdk.RemovalPolicy.RETAIN, // Prevent accidental deletion
+        websiteIndexDocument: 'index.html',
+        websiteErrorDocument: 'index.html',
+        cors: [
+          {
+            allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
+            allowedOrigins: ['*'], // This will be restricted by CloudFront later
+            allowedHeaders: ['*'],
+            maxAge: 3000,
+          },
+        ],
+      });
 
-    // Add bucket policy to allow public read access
-    this.bucket.addToResourcePolicy(
-      new iam.PolicyStatement({
-        actions: ['s3:GetObject'],
-        resources: [this.bucket.arnForObjects('*')],
-        principals: [new iam.AnyPrincipal()],
-      }),
-    );
+      // Add bucket policy to allow public read access
+      (this.bucket as s3.Bucket).addToResourcePolicy(
+        new iam.PolicyStatement({
+          actions: ['s3:GetObject'],
+          resources: [(this.bucket as s3.Bucket).arnForObjects('*')],
+          principals: [new iam.AnyPrincipal()],
+        }),
+      );
+    }
 
     // Output the bucket name and ARN
     new cdk.CfnOutput(this, 'BucketName', {

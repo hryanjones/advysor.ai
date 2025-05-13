@@ -9,7 +9,14 @@ import { DeploymentStack } from '../lib/deployment-stack';
 const app = new cdk.App();
 
 // Get domain name from context
-const domainName = app.node.tryGetContext('domain') || '';
+type Stage = 'PROD' | 'BETA';
+const STAGE: Stage = app.node.tryGetContext('stage') || 'BETA';
+
+const domainNameByStage: { PROD: string; BETA: string } = {
+  PROD: 'advysor.ai',
+  BETA: 'beta.advysor.ai',
+};
+const domainName = domainNameByStage[STAGE] || 'beta.advysor.ai';
 
 console.log('Domain name from context:', domainName);
 console.log('CDK_DEFAULT_ACCOUNT:', process.env.CDK_DEFAULT_ACCOUNT);
@@ -30,7 +37,7 @@ if (!account || !region) {
 }
 
 // Create the storage stack
-const storageStack = new StorageStack(app, 'AdvysorStorageStack', {
+const storageStack = new StorageStack(app, `StorageStack${STAGE}`, {
   env: {
     account,
     region,
@@ -39,7 +46,7 @@ const storageStack = new StorageStack(app, 'AdvysorStorageStack', {
 });
 
 // Create the CDN stack
-const cdnStack = new CDNStack(app, 'AdvysorCDNStack', {
+const cdnStack = new CDNStack(app, `CDNStack${STAGE}`, {
   env: {
     account,
     region,
@@ -49,7 +56,7 @@ const cdnStack = new CDNStack(app, 'AdvysorCDNStack', {
 });
 
 // Create the DNS stack
-const dnsStack = new DNSStack(app, 'AdvysorDNSStack', {
+const dnsStack = new DNSStack(app, `DNSStack${STAGE}`, {
   env: {
     account,
     region,
@@ -59,7 +66,7 @@ const dnsStack = new DNSStack(app, 'AdvysorDNSStack', {
 });
 
 // Create the deployment stack
-const deploymentStack = new DeploymentStack(app, 'AdvysorDeploymentStack', {
+const deploymentStack = new DeploymentStack(app, `DeploymentStack${STAGE}`, {
   env: {
     account,
     region,
