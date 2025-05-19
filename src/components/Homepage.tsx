@@ -160,15 +160,21 @@ export default function HomePage() {
         <div className="inline-flex flex-col gap-8 text-center text-balance">
           <p>
             <blockquote className="text-xl italic font-semibold">
-              <p>"This gave me more clarity in 15 minutes than hours of solo brainstorming."</p>
+              <p className="mb-2">
+                "ADVYSOR.AI has been an eye-opener...mind blown... You don't know, what you don't know, until you try
+                it."
+              </p>
             </blockquote>
-            <p> – Indie Founder</p>
+            <p> – Maricar H.</p>
           </p>
           <p>
             <blockquote className="text-xl italic font-semibold">
-              <p> "I shared the output with a developer and got a build quote the same day."</p>
+              <p className="mb-2">
+                "Using Advysor has saved me countless hours in validating new tech ideas and helped me understand how to
+                build a business around them"
+              </p>
             </blockquote>
-            <p>– Non-technical Startup Builder</p>
+            <p>– Scharief Salem CTO of XAI Foundation</p>
           </p>
         </div>
       </div>
