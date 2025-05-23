@@ -170,7 +170,7 @@ export default function HomePage() {
           <p>
             <blockquote className="text-xl italic font-semibold">
               <p className="mb-2">
-                "Using Advysor has saved me countless hours in validating new tech ideas and helped me understand how to
+                "Using ADVYSOR has saved me countless hours in validating new tech ideas and helped me understand how to
                 build a business around them"
               </p>
             </blockquote>
@@ -193,7 +193,7 @@ export default function HomePage() {
                 href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
                 className="bg-accent-gradient text-background px-6 py-3 rounded-lg hover:bg-cta inline-flex gap-2 items-center"
               >
-                Try Advysor on ChatGPT
+                Try ADVYSOR on ChatGPT
                 <FaArrowUpRightFromSquare className="text-accent size-4 flex-shrink-0" />
               </a>
             </div>

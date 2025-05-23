@@ -1,4 +1,4 @@
-# Advysor.ai Infrastructure
+# advysor.ai Infrastructure
 
 This directory contains AWS CDK code for deploying the Advysor.ai static website to AWS.
 
