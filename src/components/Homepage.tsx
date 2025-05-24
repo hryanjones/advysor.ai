@@ -171,7 +171,7 @@ export default function HomePage() {
             <blockquote className="text-xl italic font-semibold">
               <p className="mb-2">
                 "Using ADVYSOR has saved me countless hours in validating new tech ideas and helped me understand how to
-                build a business around them"
+                build a business around them."
               </p>
             </blockquote>
             <p>– Scharief Salem CTO of XAI Foundation</p>
