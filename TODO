@@ -1,21 +1,5 @@
-# Basic Website
-
-- ✅ ~~Apply theming~~
-  - ~~colors~~
-  - ~~fonts~~
-- ✅ ~~Extract the SVG of the logo and use it in favicon and header~~ (pivoted to PNG)
-- ✅ ~~Add icons: https://lineicons.com/icons?q=target seems good~~ (used react-icons instead)
-- ✅ ~~Proof read~~
-- ✅ ~~Redesign sections to be neater than just rounded boxes~~ (only change here was the first hero sections)
-- Serving assets from AWS:
-  - ~~S3 bucket~~
-  - ~~cloudfront + SSL certificate~~
-  - Route53 DNS control
-  - deployment of assets
-
-# Adding in the thing to collect emails
-
-1. Needs technical design - explore the simplest options to achieve collecting. Could be mailchimp or dumping in a google sheet or something similarly simple.
+See clickup for most tasks now:
+https://app.clickup.com/90131251345/v/l/2ky3vg4h-273
 
 ## low priority
 - navigation

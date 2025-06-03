@@ -2,8 +2,7 @@ import { FiZap, FiTool, FiCheck, FiUser, FiCode, FiTarget, FiFileText, FiMessage
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 
 import { BsRocket, BsStars } from 'react-icons/bs';
-import { GiCrystalBall } from 'react-icons/gi';
-import { TbMailbox, TbTargetArrow } from 'react-icons/tb';
+import { TbTargetArrow } from 'react-icons/tb';
 import JoinWaitlistButton from './JoinWaitlistButton';
 
 export default function HomePage() {
@@ -80,29 +79,17 @@ export default function HomePage() {
         </ol>
       </div>
 
-      {/* Coming Soon Section */}
+      <div id="early-access-form" />
       <div className="max-w-4xl w-full bg-background border border-[#6C47FF] rounded-2xl shadow-lg p-8 mt-8">
         <h2 className="text-2xl font-bold mb-4 flex items-start gap-2">
-          <GiCrystalBall className="text-accent size-7 flex-shrink-0" /> Coming Soon to Advysor
+          <FiZap className="text-accent size-7 flex-shrink-0" /> Get early access to your AI co-founder
         </h2>
-        <ul className="mb-4 space-y-2">
-          <li className="flex items-start gap-2">
-            <FiCheck className="text-accent size-6 flex-shrink-0" /> Saved chat history across sessions
-          </li>
-          <li className="flex items-start gap-2">
-            <FiCheck className="text-accent size-6 flex-shrink-0" /> Deeper AI context (your idea evolves over time)
-          </li>
-          <li className="flex items-start gap-2">
-            <FiCheck className="text-accent size-6 flex-shrink-0" /> One-click exports: pitch decks, PRDs, GTM plans
-          </li>
-          <li className="flex items-start gap-2">
-            <FiCheck className="text-accent size-6 flex-shrink-0" /> Pro features for faster iteration and better
-            collaboration
-          </li>
-        </ul>
         <p className="mb-4">
-          Want early access when we launch the full version? Leave your email and we'll keep you in the loop.
+          ADVYSOR is free during beta—currently live via GPT while we build the hosted version. You’ll get access to the
+          same planning workflows we use ourselves—from MVPs to GTM and monetization. As we build the hosted version,
+          your feedback helps shape what’s next.
         </p>
+
         <JoinWaitlistButton />
       </div>
 
@@ -198,14 +185,14 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold mb-4 flex items-start gap-2">
               <TbMailbox className="text-accent size-7 flex-shrink-0" /> Want early access to the full version with pro
               features?
             </h3>
             <p className="mb-4">Join the waitlist and be the first to try our next release.</p>
             <JoinWaitlistButton />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
