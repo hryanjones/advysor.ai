@@ -185,14 +185,16 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          {/* <div>
+          <div>
             <h3 className="text-xl font-bold mb-4 flex items-start gap-2">
-              <TbMailbox className="text-accent size-7 flex-shrink-0" /> Want early access to the full version with pro
+              <FiZap className="text-accent size-7 flex-shrink-0" /> Want early access to the full version with pro
               features?
             </h3>
-            <p className="mb-4">Join the waitlist and be the first to try our next release.</p>
+            <p className="mb-4">
+              Get access to the same planning workflows we use ourselves—from MVPs to GTM and monetization.
+            </p>
             <JoinWaitlistButton />
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
