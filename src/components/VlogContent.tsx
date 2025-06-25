@@ -1,15 +1,17 @@
 import 'react';
 import { Play } from 'lucide-react';
 import Button from './ui/Button';
+import { useLinks } from '../contexts/LinkContext';
 
 const VlogContent = () => {
+  const links = useLinks();
   const episodes = [
     {
       title: 'Starting Over... With AI',
       thumbnail: 'Starting Over... With AI.png',
       description:
         "Welcome to Week 1 of building ADVYSOR in public. I'm Alex, co-founder of ADVYSOR — an AI co-founder for solo and early-stage founders. My co-founder Mark has taken 7 products from 0 to 1. He used that experience to customize GPT-4 into virtual versions of himself you can build with.",
-      url: 'https://www.youtube.com/watch?v=qLfr3XLQmvw&list=PLPdtPFnMJ1V8WVrIDfp-W9wT5q3H9nBFA&index=4',
+      url: links.youtube.episodes.startingOver,
     },
   ];
 
@@ -76,20 +78,10 @@ const VlogContent = () => {
             New founder journey videos every week – follow along and build smarter with us.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              as="a"
-              href="https://youtube.com/@advysor"
-              external
-              variant="primary"
-            >
+            <Button as="a" href={links.youtube.channel} external variant="primary">
               View All Episodes
             </Button>
-            <Button
-              as="a"
-              href="http://www.youtube.com/channel/UCg8l4vlHa7CbzT1AVeFNv8w?sub_confirmation=1"
-              external
-              variant="secondary"
-            >
+            <Button as="a" href={links.youtube.subscribe} external variant="secondary">
               Subscribe for Updates
             </Button>
           </div>

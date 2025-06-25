@@ -1,7 +1,10 @@
 import 'react';
 import Button from './ui/Button';
+import { useLinks } from '../contexts/LinkContext';
 
 const Hero = () => {
+  const links = useLinks();
+
   return (
     <section className="pt-24 pb-16 section-padding bg-gradient-hero relative overflow-hidden">
       <div className="container-max">
@@ -24,7 +27,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12">
               <Button
                 as="a"
-                href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+                href={links.chatGPT.tryAdvysor}
                 external
                 variant="primary"
                 size="lg"

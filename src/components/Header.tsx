@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from './ui/Button';
+import { useLinks } from '../contexts/LinkContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const links = useLinks();
 
   return (
     <header className="fixed top-0 w-full bg-navy/95 backdrop-blur-sm border-b border-white/10 z-50">
@@ -35,7 +37,7 @@ const Header = () => {
             </a>
             <Button
               as="a"
-              href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+              href={links.chatGPT.tryAdvysor}
               external
               variant="primary"
               data-poc-cta
@@ -71,7 +73,7 @@ const Header = () => {
               </a>
               <Button
                 as="a"
-                href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+                href={links.chatGPT.tryAdvysor}
                 external
                 variant="primary"
                 data-poc-cta

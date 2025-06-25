@@ -4,8 +4,11 @@ import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
 import { BsRocket, BsStars } from 'react-icons/bs';
 import { TbTargetArrow } from 'react-icons/tb';
 import JoinWaitlistButton from './JoinWaitlistButton';
+import { useLinks } from '../contexts/LinkContext';
 
 export default function HomePage() {
+  const links = useLinks();
+
   return (
     <div className="min-h-screen bg-background text-primary-text p-4 flex flex-col items-center">
       {/* Sticky Navbar */}
@@ -44,7 +47,7 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <a
-              href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+              href={links.chatGPT.tryAdvysor}
               className="bg-accent-gradient text-background px-6 py-3 rounded-lg hover:bg-cta inline-flex gap-2 items-center"
             >
               Try it now on ChatGPT <FaArrowUpRightFromSquare className="text-accent size-4 flex-shrink-0" />
@@ -177,7 +180,7 @@ export default function HomePage() {
             <p className="mb-4">Try the current version free via ChatGPT.</p>
             <div className="text-center">
               <a
-                href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+                href={links.chatGPT.tryAdvysor}
                 className="bg-accent-gradient text-background px-6 py-3 rounded-lg hover:bg-cta inline-flex gap-2 items-center"
               >
                 Try ADVYSOR on ChatGPT

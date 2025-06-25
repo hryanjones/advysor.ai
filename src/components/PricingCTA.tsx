@@ -1,7 +1,10 @@
 import 'react';
 import Button from './ui/Button';
+import { useLinks } from '../contexts/LinkContext';
 
 const PricingCTA = () => {
+  const links = useLinks();
+
   return (
     <section className="section-padding bg-gradient-to-b from-navy/80 to-navy">
       <div className="container-max">
@@ -22,7 +25,7 @@ const PricingCTA = () => {
               <div className="flex justify-center">
                 <Button
                   as="a"
-                  href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+                  href={links.chatGPT.tryAdvysor}
                   external
                   variant="primary"
                   size="xl"

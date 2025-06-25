@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { FormEvent, ChangeEvent } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 import Button, { FiMail, FiSend, FiUser, IoEnterOutline } from './Button';
+import { useLinks } from '../contexts/LinkContext';
 
 // Field IDs from Google Form
 const formInputMap = {
@@ -19,6 +20,7 @@ const FORM_URL =
 type FormStep = 'initial' | 'required_submitted' | 'all_submitted';
 
 export default function JoinWaitlistButton() {
+  const links = useLinks();
   // UI state
   const [showForm, setShowForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -432,8 +434,8 @@ export default function JoinWaitlistButton() {
             <p className="mb-3">
               In the meantime, check out our vlog
               <br />👉{' '}
-              <a href="https://www.youtube.com/@advysoralex" className="underline hover:opacity-80 transition-opacity">
-                https://www.youtube.com/@advysoralex
+              <a href={links.youtube.channel} className="underline hover:opacity-80 transition-opacity">
+                {links.youtube.channel}
               </a>
             </p>
           </div>

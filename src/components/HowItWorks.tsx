@@ -1,8 +1,10 @@
 import 'react';
 import { MessageSquare, Brain, FileOutput, Star } from 'lucide-react';
 import Button from './ui/Button';
+import { useLinks } from '../contexts/LinkContext';
 
 const HowItWorks = () => {
+  const links = useLinks();
   const steps = [
     {
       number: '1',
@@ -154,7 +156,7 @@ const HowItWorks = () => {
         <div className="flex justify-center mt-12">
           <Button
             as="a"
-            href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+            href={links.chatGPT.tryAdvysor}
             external
             variant="primary"
             data-poc-cta

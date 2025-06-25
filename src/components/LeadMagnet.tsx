@@ -2,11 +2,13 @@ import type React from 'react';
 import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import Button from './ui/Button';
+import { useLinks } from '../contexts/LinkContext';
 
 const LeadMagnet = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const links = useLinks();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,7 +84,7 @@ const LeadMagnet = () => {
                   <p className="text-gray-300 mb-6">
                     Next →{' '}
                     <a
-                      href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+                      href={links.chatGPT.tryAdvysor}
                       target="_blank"
                       rel="noreferrer noopener"
                       className="text-mint hover:underline"

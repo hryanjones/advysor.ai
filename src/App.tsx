@@ -8,20 +8,23 @@ import SocialProof from './components/SocialProof';
 import VlogContent from './components/VlogContent';
 import PricingCTA from './components/PricingCTA';
 import Footer from './components/Footer';
+import { LinkProvider } from './contexts/LinkContext';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-navy">
-      <Header />
-      <Hero />
-      <PainSolution />
-      <JourneyStages />
-      <SocialProof />
-      <HowItWorks />
-      <LeadMagnet />
-      <VlogContent />
-      <PricingCTA />
-      <Footer />
-    </div>
+    <LinkProvider>
+      <div className="min-h-screen bg-navy">
+        <Header />
+        <Hero />
+        <PainSolution />
+        <JourneyStages />
+        <SocialProof />
+        <HowItWorks />
+        <LeadMagnet />
+        <VlogContent />
+        <PricingCTA />
+        <Footer />
+      </div>
+    </LinkProvider>
   );
 }
