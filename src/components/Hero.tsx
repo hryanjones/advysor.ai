@@ -30,7 +30,7 @@ const Hero = () => {
                 href={links.chatGPT.tryAdvysor}
                 external
                 variant="primary"
-                size="lg"
+                size="xl"
                 data-poc-cta
                 aria-label="Open live AI chat in new tab"
               >

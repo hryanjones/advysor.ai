@@ -23,11 +23,11 @@
   }
 
   .btn-primary {
-    @apply bg-mint text-navy font-semibold px-8 py-4 rounded-lg hover:bg-mint/90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-mint/25 focus-visible:ring-2 ring-mint-400;
+    @apply bg-mint text-navy font-semibold rounded-lg hover:bg-mint/90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-mint/25 focus-visible:ring-2 ring-mint-400;
   }
 
   .btn-secondary {
-    @apply border border-white/30 text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:ring-2 ring-mint-400;
+    @apply border border-white/30 text-white rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:ring-2 ring-mint-400;
   }
 
   .section-padding {

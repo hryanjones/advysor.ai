@@ -8,9 +8,9 @@ const Header = () => {
   const links = useLinks();
 
   return (
-    <header className="fixed top-0 w-full bg-navy/95 backdrop-blur-sm border-b border-white/10 z-50">
+    <header className="fixed top-0 w-full bg-navy/95 backdrop-blur-sm border-b border-white/10 z-50 whitespace-nowrap">
       <div className="container-max">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center pr-3">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="p-3">
@@ -20,73 +20,56 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#testimonials" className="text-gray-300 hover:text-mint transition-colors">
-              Testimonials
-            </a>
-            <a href="#how-it-works" className="text-gray-300 hover:text-mint transition-colors">
-              How It Works
-            </a>
-            <a
-              href="#content"
-              className="text-gray-300 hover:text-mint transition-colors"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Blog
-            </a>
-            <Button
-              as="a"
-              href={links.chatGPT.tryAdvysor}
-              external
-              variant="primary"
-              data-poc-cta
-              aria-label="Open live AI chat in new tab"
-            >
-              Try ADVYSOR on ChatGPT
-            </Button>
-          </nav>
+          <nav className="hidden md:flex items-center space-x-8">{navContents(links)}</nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-gray-300 hover:text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            type="button"
+            className="md:hidden text-gray-300 hover:text-white"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/10">
-            <nav className="flex flex-col space-y-4">
-              <a href="#testimonials" className="text-gray-300 hover:text-mint transition-colors">
-                Testimonials
-              </a>
-              <a href="#how-it-works" className="text-gray-300 hover:text-mint transition-colors">
-                How It Works
-              </a>
-              <a
-                href="#content"
-                className="text-gray-300 hover:text-mint transition-colors"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Blog
-              </a>
-              <Button
-                as="a"
-                href={links.chatGPT.tryAdvysor}
-                external
-                variant="primary"
-                data-poc-cta
-                aria-label="Open live AI chat in new tab"
-              >
-                Try ADVYSOR on ChatGPT
-              </Button>
-            </nav>
+          <div className="md:hidden p-4 border-t border-white/10">
+            <nav className="flex flex-col space-y-4">{navContents(links)}</nav>
           </div>
         )}
       </div>
     </header>
   );
 };
+
+function navContents(links) {
+  return (
+    <>
+      <a href="#testimonials" className="font-bold text-gray-300 hover:text-mint transition-colors">
+        Testimonials
+      </a>
+      <a href="#how-it-works" className="font-bold text-gray-300 hover:text-mint transition-colors">
+        How It Works
+      </a>
+      <a href="#content" className="font-bold text-gray-300 hover:text-mint transition-colors">
+        Blog
+      </a>
+      <div className="flex">
+        <Button
+          as="a"
+          href={links.chatGPT.tryAdvysor}
+          external
+          variant="primary"
+          data-poc-cta
+          aria-label="Open live AI chat in new tab"
+          size="sm"
+        >
+          Try ADVYSOR on ChatGPT
+        </Button>
+      </div>
+    </>
+  );
+}
 
 export default Header;

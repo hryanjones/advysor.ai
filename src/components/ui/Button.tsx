@@ -34,11 +34,7 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 /**
  * Generates class names for button styling
  */
-const getButtonClasses = (
-  variant: ButtonVariant = 'primary',
-  size: ButtonSize = 'md',
-  className = '',
-): string => {
+const getButtonClasses = (variant: ButtonVariant = 'primary', size: ButtonSize = 'md', className = ''): string => {
   // Base classes for all buttons
   const baseClasses =
     'font-semibold rounded-lg transition-all duration-300 flex items-center justify-center focus-visible:ring-2 ring-mint-400';
@@ -52,10 +48,9 @@ const getButtonClasses = (
 
   // Size classes - using object lookup instead of switch statement
   const sizeClasses = {
-    sm: 'px-4 py-2 text-sm',
-    md: '', // Default size is already in the CSS classes
-    lg: 'text-lg',
-    xl: 'px-12 py-6 text-xl',
+    sm: 'px-3 py-1 text-sm',
+    md: 'px-6 py-3', // Default size is already in the CSS classes
+    xl: 'px-8 py-4 text-xl',
   };
   const sizeClass = sizeClasses[size] || '';
 
