@@ -133,19 +133,19 @@ const Hero = () => {
           <div className="mt-16 max-w-4xl mx-auto overlay-panel">
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
               <li className="flex items-start text-center md:text-left">
-                <div className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0 hidden md:block"></div>
+                <div className="w-2 h-2 bg-mint rounded-full mt-2 mr-3 flex-shrink-0"></div>
                 <span>
                   <strong>Idea → startup roadmap, instantly.</strong>
                 </span>
               </li>
               <li className="flex items-start text-center md:text-left">
-                <div className="w-2 h-2 bg-cyan rounded-full mt-2 mr-3 flex-shrink-0 hidden md:block"></div>
+                <div className="w-2 h-2 bg-cyan rounded-full mt-2 mr-3 flex-shrink-0"></div>
                 <span>
                   <strong>10× output—build faster than DIY.</strong>
                 </span>
               </li>
               <li className="flex items-start text-center md:text-left">
-                <div className="w-2 h-2 bg-magenta rounded-full mt-2 mr-3 flex-shrink-0 hidden md:block"></div>
+                <div className="w-2 h-2 bg-magenta rounded-full mt-2 mr-3 flex-shrink-0"></div>
                 <span>
                   <strong>24/7 AI coach —always ready.</strong>
                 </span>

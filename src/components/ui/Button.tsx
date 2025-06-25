@@ -1,7 +1,7 @@
 import type React from 'react';
 
 type ButtonVariant = 'primary' | 'secondary';
-type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
+type ButtonSize = 'sm' | 'md' | 'xl';
 
 interface BaseButtonProps {
   variant?: ButtonVariant;

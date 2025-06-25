@@ -18,7 +18,7 @@ const VlogContent = () => {
   return (
     <section id="content" className="section-padding bg-gradient-to-b from-navy/30 to-navy/80">
       <div className="container-max">
-        <div className="text-center mb-16">
+        <div className="section-header">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             <span className="text-shadow-lg">Building in Public:</span>{' '}
             <span className="gradient-text">Learn Along with Us</span>

@@ -31,7 +31,11 @@
   }
 
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-10 px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-header {
+    @apply text-center mb-8 md:mb-16;
   }
 
   .container-max {

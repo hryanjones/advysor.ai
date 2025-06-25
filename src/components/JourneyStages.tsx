@@ -40,7 +40,7 @@ const JourneyStages = () => {
   return (
     <section className="section-padding bg-gradient-to-b from-navy to-navy/80">
       <div className="container-max">
-        <div className="text-center mb-16">
+        <div className="section-header">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-shadow-lg">
             From Idea to Seed Funding – <span className="gradient-text">Guidance at Every Stage</span>
           </h2>
@@ -50,48 +50,25 @@ const JourneyStages = () => {
           </p>
         </div>
 
-        {/* Desktop Timeline */}
-        <div className="hidden lg:block relative">
-          <div className="grid grid-cols-4 gap-8 relative">
-            {stages.map((stage, index) => (
-              <div key={index} className="text-center group">
-                {/* Icon */}
-                <div className="relative mb-8">
-                  <div
-                    className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${stage.color} p-1 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <div className="w-full h-full bg-navy rounded-full flex items-center justify-center">
-                      <stage.icon className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-navy stage-card"></div>
-                </div>
-
-                {/* Content */}
-                <div className="card-glass p-6 group-hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                  <h3 className="text-xl font-bold text-white mb-2">{stage.title}</h3>
-                  <h4 className="text-mint font-semibold mb-4">{stage.subtitle}</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">{stage.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile Stack */}
-        <div className="lg:hidden space-y-8">
+        <div className="flex flex-col md:flex-row gap-8 relative">
           {stages.map((stage, index) => (
-            <div key={index} className="flex items-start space-x-6">
-              <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${stage.color} p-1 flex-shrink-0`}>
-                <div className="w-full h-full bg-navy rounded-full flex items-center justify-center">
-                  <stage.icon className="h-6 w-6 text-white" />
+            <div key={index} className="flex md:flex-col text-center group">
+              {/* Icon */}
+              <div className="relative mr-4 md:mb-8 md:m4-0 group-hover:scale-105">
+                <div
+                  className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r ${stage.color} p-1 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <div className="w-full h-full bg-navy rounded-full flex items-center justify-center">
+                    <stage.icon className="h-8 w-8 text-white" />
+                  </div>
                 </div>
               </div>
 
-              <div className="card-glass p-6 flex-1 hover:scale-105 transition-all duration-300">
+              {/* Content */}
+              <div className="card-glass p-6 group-hover:bg-white/10 transition-all duration-300 group-hover:scale-105">
                 <h3 className="text-xl font-bold text-white mb-2">{stage.title}</h3>
                 <h4 className="text-mint font-semibold mb-4">{stage.subtitle}</h4>
-                <p className="text-gray-400 leading-relaxed">{stage.description}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{stage.description}</p>
               </div>
             </div>
           ))}

@@ -2,7 +2,7 @@ import 'react';
 import { createContext, useContext, type ReactNode } from 'react';
 
 // Define the shape of our links object
-interface AppLinks {
+export interface AppLinks {
   chatGPT: {
     tryAdvysor: string;
   };

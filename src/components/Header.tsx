@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from './ui/Button';
-import { useLinks } from '../contexts/LinkContext';
+import { type AppLinks, useLinks } from '../contexts/LinkContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +43,7 @@ const Header = () => {
   );
 };
 
-function navContents(links) {
+function navContents(links: AppLinks) {
   return (
     <>
       <a href="#testimonials" className="font-bold text-gray-300 hover:text-mint transition-colors">

@@ -31,7 +31,7 @@ const SocialProof = () => {
   return (
     <section id="testimonials" className="section-padding bg-navy/50">
       <div className="container-max">
-        <div className="text-center mb-16">
+        <div className="section-header">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-shadow-lg">
             <span className="gradient-text">Loved by Founders</span> Like You
           </h2>
@@ -41,7 +41,7 @@ const SocialProof = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="card-glass p-8">
               <blockquote className="text-lg text-white mb-6 leading-relaxed italic">"{testimonial.quote}"</blockquote>

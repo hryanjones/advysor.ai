@@ -37,9 +37,9 @@ const PainSolution = () => {
           <div className="animate-fade-in space-y-12">
             <div>
               <div className="flex items-center mb-8">
-                <AlertCircle className="h-16 w-16 text-red-400 mr-4" />
+                <AlertCircle className="h-20 w-20 text-red-400 mr-4" />
                 <h2 className="text-4xl md:text-5xl font-bold text-white text-shadow-lg">
-                  Starting a Business Is Hard – 90 % of Ideas Never Launch
+                  Starting a Business Is Hard – 90% of Ideas Never Launch
                 </h2>
               </div>
 
@@ -72,13 +72,11 @@ const PainSolution = () => {
             <div className="space-y-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start group">
-                  <div className="bg-gradient-brand/20 rounded-lg p-3 mr-4 group-hover:bg-gradient-brand/30 transition-colors">
+                  <div className="bg-gradient-brand/20 rounded-lg px-3 mr-4 group-hover:bg-gradient-brand/30 transition-colors">
                     <benefit.icon className="h-6 w-6 text-mint" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-mint transition-colors">
-                      {benefit.title}
-                    </h4>
+                    <h4 className="text-lg font-semibold text-white mb-2">{benefit.title}</h4>
                     <p className="text-gray-400 leading-relaxed">{benefit.description}</p>
                   </div>
                 </div>
