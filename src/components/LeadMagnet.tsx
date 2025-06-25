@@ -26,7 +26,7 @@ const LeadMagnet = () => {
   return (
     <section
       id="lead-magnet"
-      className="section-padding bg-gradient-to-r from-indigo/20 to-magenta/20 border-y border-white/10"
+      className="section-padding mt-10 py-10 bg-gradient-to-r from-indigo/20 to-magenta/20 border-y border-white/10"
     >
       <div className="container-max">
         <div className="max-w-4xl mx-auto text-center">
