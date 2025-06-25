@@ -1,14 +1,6 @@
-import React from 'react';
-import { ArrowRight, Check, Users, Shield, Zap } from 'lucide-react';
+import 'react';
 
 const PricingCTA = () => {
-  const benefits = [
-    'Free during Beta – all features unlocked.',
-    'Referral perk – invite a founder friend, you both get 1 month of ADVYSOR Pro free.',
-    'Simple future pricing – Pro will be about two coffees a month.',
-    'Fast results – onboarding takes < 2 minutes; walk away anytime, no hard feelings.',
-  ];
-
   return (
     <section className="section-padding bg-gradient-to-b from-navy/80 to-navy">
       <div className="container-max">
@@ -22,7 +14,7 @@ const PricingCTA = () => {
               </h2>
 
               <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Chat live with ADVYSOR. Instant access if you already have an OpenAI account, and a less than a minute
+                Chat live with ADVYSOR. Instant access if you already have an ChatGPT account, and a less than a minute
                 signup if you don't.
               </p>
 
@@ -35,7 +27,7 @@ const PricingCTA = () => {
                   data-poc-cta
                   aria-label="Open live AI chat in new tab"
                 >
-                  Try ADVYSOR on OpenAI
+                  Try ADVYSOR on ChatGPT
                 </a>
               </div>
             </div>

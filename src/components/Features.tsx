@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { Brain, Target, BarChart3, Users, Lightbulb, Shield } from 'lucide-react';
 
 const Features = () => {

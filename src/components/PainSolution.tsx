@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { AlertCircle, CheckCircle, Lightbulb, FileText, TrendingUp, DollarSign } from 'lucide-react';
 
 const PainSolution = () => {

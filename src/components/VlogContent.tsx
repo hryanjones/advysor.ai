@@ -1,5 +1,5 @@
-import React from 'react';
-import { Play, Eye, Calendar, Youtube } from 'lucide-react';
+import 'react';
+import { Play } from 'lucide-react';
 
 const VlogContent = () => {
   const episodes = [
@@ -75,12 +75,16 @@ const VlogContent = () => {
             New founder journey videos every week – follow along and build smarter with us.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary">
-              <a href="https://youtube.com/@advysor" target="_blank" rel="noreferrer noopener">
-                View All Episodes
-              </a>
-            </button>
-            <button className="btn-secondary">Subscribe for Updates</button>
+            <a href="https://youtube.com/@advysor" target="_blank" rel="noreferrer noopener">
+              <button className="btn-primary">View All Episodes</button>
+            </a>
+            <a
+              href="http://www.youtube.com/channel/UCg8l4vlHa7CbzT1AVeFNv8w?sub_confirmation=1"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <button className="btn-secondary">Subscribe for Updates</button>
+            </a>
           </div>
         </div>
       </div>

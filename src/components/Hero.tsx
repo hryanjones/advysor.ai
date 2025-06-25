@@ -1,5 +1,4 @@
-import React from 'react';
-import { ArrowRight, Play, Star } from 'lucide-react';
+import 'react';
 
 const Hero = () => {
   return (
@@ -30,14 +29,14 @@ const Hero = () => {
                 data-poc-cta
                 aria-label="Open live AI chat in new tab"
               >
-                Try ADVYSOR on OpenAI
+                Try ADVYSOR on ChatGPT
               </a>
             </div>
           </div>
 
           {/* Bottom Section: Real ADVYSOR Product Interface */}
           <div className="flex justify-center">
-            <div className="animate-float max-w-5xl w-full">
+            <div className="max-w-5xl w-full">
               <div className="relative">
                 <div className="card-glass p-6 rounded-2xl">
                   <div className="bg-navy/80 rounded-lg p-6">
@@ -58,7 +57,7 @@ const Hero = () => {
                       <div className="text-center">
                         <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
                           <img
-                            src="/ADVYSOR.AI Brandmark copy.png"
+                            src="/ADVYSOR.AI Brandmark.png"
                             alt="ADVYSOR.AI Compass Logo"
                             className="w-36 h-36 object-contain"
                           />
@@ -121,8 +120,6 @@ const Hero = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Floating elements */}
               </div>
             </div>
           </div>

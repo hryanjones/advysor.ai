@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Menu, X, Compass } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,11 +11,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="p-3">
-              <img
-                src="/ADVYSOR.AI Brandmark copy.png"
-                alt="ADVYSOR.AI Compass Logo"
-                className="w-12 h-12 object-contain"
-              />
+              <img src="/ADVYSOR.AI Brandmark.png" alt="ADVYSOR.AI Compass Logo" className="w-12 h-12 object-contain" />
             </div>
             <span className="text-2xl font-bold gradient-text text-shadow-lg">ADVYSOR.AI</span>
           </div>
@@ -44,7 +40,7 @@ const Header = () => {
               data-poc-cta
               aria-label="Open live AI chat in new tab"
             >
-              Try ADVYSOR on OpenAI
+              Try ADVYSOR on ChatGPT
             </a>
           </nav>
 
@@ -80,7 +76,7 @@ const Header = () => {
                 data-poc-cta
                 aria-label="Open live AI chat in new tab"
               >
-                Try ADVYSOR on OpenAI
+                Try ADVYSOR on ChatGPT
               </a>
             </nav>
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { Play, Eye, Calendar } from 'lucide-react';
 
 const VlogSection = () => {

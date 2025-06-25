@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import 'react';
+import { Star } from 'lucide-react';
 
 const SocialProof = () => {
   const testimonials = [
@@ -84,7 +84,7 @@ const SocialProof = () => {
                 </div>
               </div>
             </div>
-            <div className="text-gray-400">Average Rating</div>
+            <div className="text-gray-400">GPT Store Rating</div>
           </div>
         </div>
       </div>

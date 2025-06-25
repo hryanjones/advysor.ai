@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { MessageSquare, Brain, FileOutput, Star } from 'lucide-react';
 
 const HowItWorks = () => {
@@ -89,7 +89,7 @@ const HowItWorks = () => {
           </div>
 
           {/* Right Column - Real ADVYSOR Workflow */}
-          <div className="animate-float hover:scale-105 transition-all duration-300">
+          <div className="hover:scale-105 transition-all duration-300">
             <div className="card-glass p-8 rounded-2xl">
               <div className="bg-navy/70 rounded-lg p-6">
                 <div className="flex items-center justify-between mb-6">
@@ -159,7 +159,7 @@ const HowItWorks = () => {
             data-poc-cta
             aria-label="Open live AI chat in new tab"
           >
-            Try ADVYSOR on OpenAI
+            Try ADVYSOR on ChatGPT
           </a>
         </div>
       </div>

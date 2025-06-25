@@ -1,6 +1,6 @@
 import type React from 'react';
 import { useState } from 'react';
-import { Download, Gift, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 const LeadMagnet = () => {
   const [email, setEmail] = useState('');
@@ -66,7 +66,7 @@ const LeadMagnet = () => {
                     aria-label="Send me the startup prompt pack"
                   >
                     {isLoading ? (
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-navy"></div>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-navy" />
                     ) : (
                       <>
                         Send Me
@@ -99,10 +99,6 @@ const LeadMagnet = () => {
 
               <p className="text-xs text-gray-400 mt-6 footnote" style={{ fontSize: '11px' }}>
                 We'll email the PDF plus a 2‑min ADVYSOR guide. No spam — unsubscribe anytime.
-                <br />
-                <small className="disclaimer text-gray-500 opacity-50" style={{ fontSize: '10px' }}>
-                  "ChatGPT" is a trademark of OpenAI, used for compatibility reference.
-                </small>
               </p>
             </div>
           </div>

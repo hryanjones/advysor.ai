@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { Lightbulb, Rocket, TrendingUp, Presentation as PresentationChart } from 'lucide-react';
 
 const JourneyStages = () => {
