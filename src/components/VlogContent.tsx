@@ -1,5 +1,6 @@
 import 'react';
 import { Play } from 'lucide-react';
+import Button from './ui/Button';
 
 const VlogContent = () => {
   const episodes = [
@@ -75,16 +76,22 @@ const VlogContent = () => {
             New founder journey videos every week – follow along and build smarter with us.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://youtube.com/@advysor" target="_blank" rel="noreferrer noopener">
-              <button className="btn-primary">View All Episodes</button>
-            </a>
-            <a
-              href="http://www.youtube.com/channel/UCg8l4vlHa7CbzT1AVeFNv8w?sub_confirmation=1"
-              target="_blank"
-              rel="noreferrer noopener"
+            <Button
+              as="a"
+              href="https://youtube.com/@advysor"
+              external
+              variant="primary"
             >
-              <button className="btn-secondary">Subscribe for Updates</button>
-            </a>
+              View All Episodes
+            </Button>
+            <Button
+              as="a"
+              href="http://www.youtube.com/channel/UCg8l4vlHa7CbzT1AVeFNv8w?sub_confirmation=1"
+              external
+              variant="secondary"
+            >
+              Subscribe for Updates
+            </Button>
           </div>
         </div>
       </div>

@@ -30,10 +30,6 @@
     @apply border border-white/30 text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-300 focus-visible:ring-2 ring-mint-400;
   }
 
-  .btn-tertiary {
-    @apply border border-mint/50 text-mint px-8 py-4 rounded-lg hover:bg-mint/10 transition-all duration-300 focus-visible:ring-2 ring-mint-400;
-  }
-
   .section-padding {
     @apply py-20 px-4 sm:px-6 lg:px-8;
   }

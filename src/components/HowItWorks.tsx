@@ -1,5 +1,6 @@
 import 'react';
 import { MessageSquare, Brain, FileOutput, Star } from 'lucide-react';
+import Button from './ui/Button';
 
 const HowItWorks = () => {
   const steps = [
@@ -150,17 +151,17 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <a
-            href="https://chatgpt.com/g/g-2acVF1ckn-advysor-startup-co-founder-ai"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="btn-primary focus-visible:ring-2 ring-mint-400"
+        <div className="flex justify-center mt-12">
+          <Button
+            as="a"
+            href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+            external
+            variant="primary"
             data-poc-cta
             aria-label="Open live AI chat in new tab"
           >
             Try ADVYSOR on ChatGPT
-          </a>
+          </Button>
         </div>
       </div>
     </section>

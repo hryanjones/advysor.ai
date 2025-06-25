@@ -1,4 +1,5 @@
 import 'react';
+import Button from './ui/Button';
 
 const Hero = () => {
   return (
@@ -21,16 +22,17 @@ const Hero = () => {
 
             {/* CTA Row - Matching Wireframe */}
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12">
-              <a
-                href="https://chatgpt.com/g/g-2acVF1ckn-advysor-startup-co-founder-ai"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-primary group text-lg px-8 py-4 focus-visible:ring-2 ring-mint-400"
+              <Button
+                as="a"
+                href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+                external
+                variant="primary"
+                size="lg"
                 data-poc-cta
                 aria-label="Open live AI chat in new tab"
               >
                 Try ADVYSOR on ChatGPT
-              </a>
+              </Button>
             </div>
           </div>
 

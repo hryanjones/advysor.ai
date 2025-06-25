@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Button from './ui/Button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,16 +33,16 @@ const Header = () => {
             >
               Blog
             </a>
-            <a
-              href="https://chatgpt.com/g/g-2acVF1ckn-advysor-startup-co-founder-ai"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="btn-primary focus-visible:ring-2 ring-mint-400"
+            <Button
+              as="a"
+              href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+              external
+              variant="primary"
               data-poc-cta
               aria-label="Open live AI chat in new tab"
             >
               Try ADVYSOR on ChatGPT
-            </a>
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -68,16 +69,16 @@ const Header = () => {
               >
                 Blog
               </a>
-              <a
-                href="https://chatgpt.com/g/g-2acVF1ckn-advysor-startup-co-founder-ai"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-primary w-full focus-visible:ring-2 ring-mint-400"
+              <Button
+                as="a"
+                href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
+                external
+                variant="primary"
                 data-poc-cta
                 aria-label="Open live AI chat in new tab"
               >
                 Try ADVYSOR on ChatGPT
-              </a>
+              </Button>
             </nav>
           </div>
         )}

@@ -1,6 +1,7 @@
 import type React from 'react';
 import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
+import Button from './ui/Button';
 
 const LeadMagnet = () => {
   const [email, setEmail] = useState('');
@@ -59,22 +60,18 @@ const LeadMagnet = () => {
                     className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-mint focus:ring-2 focus:ring-mint/20"
                     required
                   />
-                  <button
+                  <Button
                     type="submit"
                     disabled={isLoading}
-                    className="btn-primary flex items-center justify-center min-w-[200px] focus-visible:ring-2 ring-mint-400 cta-btn"
+                    variant="primary"
+                    className="min-w-[200px] cta-btn"
+                    isLoading={isLoading}
                     aria-label="Send me the startup prompt pack"
                   >
-                    {isLoading ? (
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-navy" />
-                    ) : (
-                      <>
-                        Send Me
-                        <br />
-                        the Prompts
-                      </>
-                    )}
-                  </button>
+                    Send Me
+                    <br />
+                    the Prompts
+                  </Button>
                 </form>
               ) : (
                 <div className="max-w-md mx-auto">
@@ -85,7 +82,7 @@ const LeadMagnet = () => {
                   <p className="text-gray-300 mb-6">
                     Next →{' '}
                     <a
-                      href="https://chatgpt.com/g/g-2acVF1ckn-advysor-startup-co-founder-ai"
+                      href="https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai"
                       target="_blank"
                       rel="noreferrer noopener"
                       className="text-mint hover:underline"
