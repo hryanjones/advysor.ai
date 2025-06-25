@@ -62,7 +62,7 @@ const Hero = () => {
                       <div className="text-center">
                         <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
                           <img
-                            src="/ADVYSOR.AI Brandmark.png"
+                            src="/advysor-brand.png"
                             alt="ADVYSOR.AI Compass Logo"
                             className="w-36 h-36 object-contain"
                           />

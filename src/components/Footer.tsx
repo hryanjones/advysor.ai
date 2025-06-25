@@ -13,11 +13,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="p-1">
-                <img
-                  src="/ADVYSOR.AI Brandmark.png"
-                  alt="ADVYSOR.AI Compass Logo"
-                  className="w-12 h-12 object-contain"
-                />
+                <img src="/advysor-brand.png" alt="ADVYSOR.AI Compass Logo" className="w-12 h-12 object-contain" />
               </div>
               <span className="text-xl font-bold gradient-text text-shadow-lg">ADVYSOR.AI</span>
             </div>

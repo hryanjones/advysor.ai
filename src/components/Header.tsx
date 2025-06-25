@@ -12,9 +12,9 @@ const Header = () => {
       <div className="container-max">
         <div className="flex justify-between items-center pr-3">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             <div className="p-3">
-              <img src="/ADVYSOR.AI Brandmark.png" alt="ADVYSOR.AI Compass Logo" className="w-12 h-12 object-contain" />
+              <img src="/advysor-brand.png" alt="ADVYSOR.AI Compass Logo" className="w-10 h-10 object-contain" />
             </div>
             <span className="text-2xl font-bold gradient-text text-shadow-lg">ADVYSOR.AI</span>
           </div>
