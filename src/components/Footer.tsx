@@ -31,11 +31,7 @@ const Footer = () => {
               <a href={links.youtube.channel} className="text-gray-400 hover:text-mint transition-colors">
                 <Youtube className="h-4 w-4" />
               </a>
-              <a
-                href={links.social.discord}
-                className="text-gray-400 hover:text-mint transition-colors"
-                title="Discord Community"
-              >
+              <a href={links.social.discord} className="text-gray-400 hover:text-mint transition-colors">
                 <DiscordIcon />
               </a>
               <a href={links.contact.email} className="text-gray-400 hover:text-mint transition-colors">

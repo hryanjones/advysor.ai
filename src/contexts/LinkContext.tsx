@@ -46,7 +46,7 @@ const appLinks: AppLinks = {
     twitter: 'https://x.com/ADVYSORAI',
     linkedin: 'https://www.linkedin.com/company/advysorai/',
     instagram: 'https://www.instagram.com/advysor.ai/',
-    discord: '#', // TODO - Update when Discord is available
+    discord: 'https://discord.gg/GTn9NhUd',
   },
   contact: {
     email: 'mailto:contact@advysor.ai',
