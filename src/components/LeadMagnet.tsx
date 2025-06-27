@@ -1,27 +1,27 @@
-import type React from 'react';
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { CheckCircle } from 'lucide-react';
 import Button from './ui/Button';
 import { useLinks } from '../contexts/LinkContext';
 
-const LeadMagnet = () => {
+// Field IDs from Google Form
+const formInputMap = {
+  email: 'entry.732351849',
+  name: 'entry.1066006339',
+  whatBuilding: 'entry.464073483',
+  howUse: 'entry.1018956477',
+  howHeard: 'entry.83165922',
+  wantToHelp: 'entry.1115098463',
+};
+
+const FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfJWzvDZ2UPbu8mFOrU1gWR26PLHTm__csZTosOq2jYBFnB6Q/formResponse';
+
+function LeadMagnet() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const links = useLinks();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setIsLoading(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitted(true);
-      setIsLoading(false);
-    }, 1000);
-  };
 
   return (
     <section
@@ -55,6 +55,7 @@ const LeadMagnet = () => {
                   data-beta-form
                 >
                   <input
+                    id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -74,6 +75,11 @@ const LeadMagnet = () => {
                     <br />
                     the Prompts
                   </Button>
+                  {error && (
+                    <p className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm flex items-start gap-2">
+                      {error}
+                    </p>
+                  )}
                 </form>
               ) : (
                 <div className="max-w-md mx-auto">
@@ -105,6 +111,31 @@ const LeadMagnet = () => {
       </div>
     </section>
   );
-};
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const formData = new FormData();
+      formData.append(formInputMap.email, email);
+
+      // Use fetch with no-cors mode since Google Forms doesn't allow CORS
+      await fetch(FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+
+      // With no-cors, we can't check response.ok
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError('There was an error submitting your email. Please try again.');
+    } finally {
+      setIsSubmitted(true);
+      setIsLoading(false);
+    }
+  }
+}
 
 export default LeadMagnet;
