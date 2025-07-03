@@ -83,7 +83,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">© 2025 ADVYSOR.AI. All rights reserved.</p>
           <div className="flex space-x-4 mt-3 md:mt-0">
-            <a
+            {/* <a
               href={links.legal.privacyPolicy}
               className="text-gray-400 hover:text-mint transition-colors text-sm"
               target="_blank"
@@ -106,7 +106,7 @@ const Footer = () => {
               rel="noreferrer noopener"
             >
               Cookie Policy
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
