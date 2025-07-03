@@ -1,12 +1,11 @@
-import { useState, type FormEvent } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { useState, type FormEvent, type ChangeEvent } from 'react';
+import { CheckCircle, AlertCircle, Mail, UserRoundPlus } from 'lucide-react';
 import Button from './ui/Button';
 import { useLinks } from '../contexts/LinkContext';
 
 // Field IDs from Google Form
 const formInputMap = {
   email: 'entry.732351849',
-  name: 'entry.1066006339',
   whatBuilding: 'entry.464073483',
   howUse: 'entry.1018956477',
   howHeard: 'entry.83165922',
@@ -16,12 +15,134 @@ const formInputMap = {
 const FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSfJWzvDZ2UPbu8mFOrU1gWR26PLHTm__csZTosOq2jYBFnB6Q/formResponse';
 
+type FormStep = 'initial' | 'required_submitted' | 'all_submitted';
+
 function LeadMagnet() {
-  const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // UI state
+  const [formStep, setFormStep] = useState<FormStep>('initial');
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Form data
+  const [email, setEmail] = useState('');
+  const [whatBuilding, setWhatBuilding] = useState('');
+
+  // Checkboxes state
+  const [howUseOptions, setHowUseOptions] = useState<Record<string, boolean>>({
+    'Plan an MVP': false,
+    'Refine my GTM strategy': false,
+    'Model monetization or pricing': false,
+    'Build a pitch deck': false,
+    'Get feedback on my roadmap': false,
+  });
+  const [howUseOtherChecked, setHowUseOtherChecked] = useState(false);
+  const [howUseOther, setHowUseOther] = useState('');
+
+  const [howHeardOptions, setHowHeardOptions] = useState<Record<string, boolean>>({
+    'Twitter / X': false,
+    LinkedIn: false,
+    'YouTube / VLOG': false,
+    Reddit: false,
+    'Discord / community group': false,
+    'Friend or colleague': false,
+  });
+  const [howHeardOther, setHowHeardOther] = useState('');
+
+  const [wantToHelpOptions, setWantToHelpOptions] = useState<Record<string, boolean>>({
+    "I'd be open to giving feedback.": false,
+    "I'd be open to being featured in a VLOG.": false,
+  });
+
   const links = useLinks();
+
+  const handleRequiredSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append(formInputMap.email, email);
+
+      await fetch(FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+
+      setFormStep('required_submitted');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError('There was an error submitting your email. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleCheckboxChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    options: Record<string, boolean>,
+    setOptions: (value: Record<string, boolean>) => void,
+  ) => {
+    const { name, checked } = e.target;
+    setOptions({ ...options, [name]: checked });
+  };
+
+  const handleFinalSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const formData = new FormData();
+      formData.append(formInputMap.email, email);
+
+      if (whatBuilding) {
+        formData.append(formInputMap.whatBuilding, whatBuilding);
+      }
+
+      for (const [option, isChecked] of Object.entries(howUseOptions)) {
+        if (isChecked) {
+          formData.append(formInputMap.howUse, option);
+        }
+      }
+
+      if (howUseOtherChecked) {
+        formData.append(formInputMap.howUse, '__other_option__');
+        if (howUseOther.trim()) {
+          formData.append(`${formInputMap.howUse}.other_option_response`, howUseOther);
+        }
+      }
+
+      const selectedHowHeardOption = Object.entries(howHeardOptions).find(([_, isChecked]) => isChecked);
+      if (selectedHowHeardOption) {
+        formData.append(formInputMap.howHeard, selectedHowHeardOption[0]);
+      } else if (howHeardOther) {
+        const value = howHeardOther.trim() || 'Other';
+        formData.append(formInputMap.howHeard, '__other_option__');
+        formData.append(`${formInputMap.howHeard}.other_option_response`, value);
+      }
+
+      for (const [option, isChecked] of Object.entries(wantToHelpOptions)) {
+        if (isChecked) {
+          formData.append(formInputMap.wantToHelp, option);
+        }
+      }
+
+      await fetch(FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+
+      setFormStep('all_submitted');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError('There was an error submitting your responses. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section
@@ -32,63 +153,65 @@ function LeadMagnet() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="card-glass p-12 rounded-2xl relative overflow-hidden leadmagnet">
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 text-shadow-lg headline">
-                Free Startup&nbsp;Prompt Pack 🎁
-              </h3>
+              <h2 className="text-4xl text-balance md:text-5xl font-bold text-white mb-6">
+                <span className="text-shadow-lg">Get Early Access to Your</span>{' '}
+                <span className="gradient-text">AI Co‑Founder</span>
+              </h2>
 
               <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed subhead">
-                50 proven prompts you can paste into <strong>ChatGPT</strong> — and turbo‑charge inside{' '}
-                <strong>ADVYSOR</strong>.
+                Join the waitlist for our Pro version launch and earn 1 month free for each friend you invite! (Limit 3)
               </p>
 
-              <ul className="benefit-list text-lg text-gray-300 mb-8 flex flex-wrap justify-center gap-3 sm:gap-6">
-                <li>✅ Validate ideas</li>
-                <li>✅ Draft MVP specs</li>
-                <li>✅ Acquire customers</li>
-                <li>✅ Craft pitch slides</li>
-              </ul>
-
-              {!isSubmitted ? (
-                <form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
-                  data-beta-form
-                >
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-mint focus:ring-2 focus:ring-mint/20"
-                    required
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    variant="primary"
-                    className="min-w-[200px] cta-btn"
-                    isLoading={isLoading}
-                    aria-label="Send me the startup prompt pack"
-                  >
-                    Send Me
-                    <br />
-                    the Prompts
-                  </Button>
+              {formStep === 'initial' && (
+                <form onSubmit={handleRequiredSubmit} data-beta-form>
                   {error && (
-                    <p className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm flex items-start gap-2">
-                      {error}
-                    </p>
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm flex items-start gap-2">
+                      <AlertCircle className="text-red-500 mt-0.5 flex-shrink-0 w-4 h-4" />
+                      <p>{error}</p>
+                    </div>
                   )}
+
+                  <div className="flex relative gap-2 items-center flex-wrap">
+                    <Mail className="absolute inset-y-4 left-4 ztext-gray-400 w-5 h-5" />
+                    <input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="What's the best email to reach you?"
+                      className="pl-10 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-mint focus:ring-2 focus:ring-mint/20 flex-grow"
+                      required
+                    />
+
+                    <Button
+                      type="submit"
+                      disabled={isLoading}
+                      variant="primary"
+                      className="cta-btn"
+                      isLoading={isLoading}
+                      aria-label="Get Early Access"
+                    >
+                      <UserRoundPlus className="inline-block mr-2" />
+                      Join Waitlist
+                    </Button>
+                  </div>
                 </form>
-              ) : (
-                <div className="max-w-md mx-auto">
+              )}
+
+              {formStep !== 'initial' && (
+                <div className="">
                   <div className="flex items-center justify-center mb-4">
                     <CheckCircle className="h-8 w-8 text-mint mr-3" />
-                    <span className="text-xl font-semibold text-mint">Prompts sent!</span>
+                    <div>
+                      <div className="text-2xl font-semibold">👋 Thanks! </div>
+                      <p>
+                        You're on the list.
+                        {/* Use this referral link to invite others */}
+                      </p>
+                    </div>
                   </div>
                   <p className="text-gray-300 mb-6">
-                    Next →{' '}
+                    Meanwhile →{' '}
                     <a
                       href={links.chatGPT.tryAdvysor}
                       target="_blank"
@@ -96,46 +219,182 @@ function LeadMagnet() {
                       className="text-mint hover:underline"
                       data-poc-cta
                     >
-                      Start chatting live
+                      Try ADVYSOR now
                     </a>
                   </p>
                 </div>
               )}
 
-              <p className="text-xs text-gray-400 mt-6 footnote" style={{ fontSize: '11px' }}>
-                We'll email the PDF plus a 2‑min ADVYSOR guide. No spam — unsubscribe anytime.
-              </p>
+              {formStep === 'required_submitted' && (
+                <div className="mt-16 max-w-2xl mx-auto">
+                  <p className="text-sm text-gray-300 mb-4">
+                    Help us shape ADVYSOR by answering a few optional questions:
+                  </p>
+
+                  <form onSubmit={handleFinalSubmit} className="space-y-6">
+                    {error && (
+                      <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm flex items-start gap-2">
+                        <AlertCircle className="text-red-500 mt-0.5 flex-shrink-0 w-4 h-4" />
+                        <p>{error}</p>
+                      </div>
+                    )}
+
+                    <div>
+                      <label htmlFor="whatBuilding" className="block text-sm font-medium mb-2 text-gray-300 text-left">
+                        <strong>What are you building?</strong>
+                      </label>
+                      <input
+                        type="text"
+                        id="whatBuilding"
+                        value={whatBuilding}
+                        onChange={(e) => setWhatBuilding(e.target.value)}
+                        className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-mint focus:ring-2 focus:ring-mint/20"
+                        placeholder="Idea, product, or space you're exploring (can be rough)"
+                      />
+                    </div>
+
+                    <fieldset className="border border-white/20 rounded-lg p-4">
+                      <legend className="text-sm font-medium px-2 text-gray-300">
+                        <strong>How would you use ADVYSOR?</strong>
+                      </legend>
+                      <p className="text-xs mb-3 text-gray-400">
+                        Check all that apply. Helps us shape features and content.
+                      </p>
+
+                      <div className="space-y-2 text-left">
+                        {Object.keys(howUseOptions).map((option) => (
+                          <label
+                            key={`howUse-${option}`}
+                            className="flex items-start space-x-2 text-sm text-gray-300 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              name={option}
+                              checked={howUseOptions[option]}
+                              onChange={(e) => handleCheckboxChange(e, howUseOptions, setHowUseOptions)}
+                              className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/10 text-mint focus:ring-mint/20"
+                            />
+                            <span>{option}</span>
+                          </label>
+                        ))}
+
+                        <div className="flex items-start space-x-2">
+                          <input
+                            type="checkbox"
+                            checked={howUseOtherChecked}
+                            onChange={(e) => setHowUseOtherChecked(e.target.checked)}
+                            className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/10 text-mint focus:ring-mint/20"
+                          />
+                          <input
+                            type="text"
+                            value={howUseOther}
+                            onChange={(e) => setHowUseOther(e.target.value)}
+                            className="flex-1 bg-white/10 border border-white/20 rounded px-3 py-1 text-white placeholder-gray-400 focus:outline-none focus:border-mint"
+                            placeholder="Other use case"
+                          />
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset className="border border-white/20 rounded-lg p-4">
+                      <legend className="text-sm font-medium px-2 text-gray-300">
+                        <strong>How did you hear about ADVYSOR?</strong>
+                      </legend>
+
+                      <div className="space-y-2 text-left">
+                        {Object.keys(howHeardOptions).map((option) => (
+                          <label
+                            key={`howHeard-${option}`}
+                            className="flex items-start space-x-2 text-sm text-gray-300 cursor-pointer"
+                          >
+                            <input
+                              type="radio"
+                              name="howHeard"
+                              checked={howHeardOptions[option]}
+                              onChange={() => {
+                                const resetOptions = Object.keys(howHeardOptions).reduce(
+                                  (acc, key) => {
+                                    acc[key] = false;
+                                    return acc;
+                                  },
+                                  {} as Record<string, boolean>,
+                                );
+                                setHowHeardOptions({ ...resetOptions, [option]: true });
+                                setHowHeardOther('');
+                              }}
+                              className="mt-0.5 h-4 w-4 border-white/20 bg-white/10 text-mint focus:ring-mint/20"
+                            />
+                            <span>{option}</span>
+                          </label>
+                        ))}
+
+                        <div className="flex items-start space-x-2">
+                          <input
+                            type="radio"
+                            name="howHeard"
+                            checked={!!howHeardOther}
+                            onChange={() => {
+                              const resetOptions = Object.keys(howHeardOptions).reduce(
+                                (acc, key) => {
+                                  acc[key] = false;
+                                  return acc;
+                                },
+                                {} as Record<string, boolean>,
+                              );
+                              setHowHeardOptions(resetOptions);
+                              setHowHeardOther(' ');
+                            }}
+                            className="mt-0.5 h-4 w-4 border-white/20 bg-white/10 text-mint focus:ring-mint/20"
+                          />
+                          <input
+                            type="text"
+                            value={howHeardOther}
+                            onChange={(e) => setHowHeardOther(e.target.value)}
+                            className="flex-1 bg-white/10 border border-white/20 rounded px-3 py-1 text-white placeholder-gray-400 focus:outline-none focus:border-mint"
+                            placeholder="Other source"
+                          />
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <fieldset className="border border-white/20 rounded-lg p-4">
+                      <legend className="text-sm font-medium px-2 text-gray-300">
+                        <strong>Want to help shape ADVYSOR or share your story?</strong>
+                      </legend>
+
+                      <div className="space-y-2 text-left">
+                        {Object.keys(wantToHelpOptions).map((option) => (
+                          <label
+                            key={`wantToHelp-${option}`}
+                            className="flex items-start space-x-2 text-sm text-gray-300 cursor-pointer"
+                          >
+                            <input
+                              type="checkbox"
+                              name={option}
+                              checked={wantToHelpOptions[option]}
+                              onChange={(e) => handleCheckboxChange(e, wantToHelpOptions, setWantToHelpOptions)}
+                              className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/10 text-mint focus:ring-mint/20"
+                            />
+                            <span>{option}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </fieldset>
+
+                    <div className="flex justify-end">
+                      <Button type="submit" disabled={isLoading} variant="primary" isLoading={isLoading}>
+                        Submit Additional Info
+                      </Button>
+                    </div>
+                  </form>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const formData = new FormData();
-      formData.append(formInputMap.email, email);
-
-      // Use fetch with no-cors mode since Google Forms doesn't allow CORS
-      await fetch(FORM_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData,
-      });
-
-      // With no-cors, we can't check response.ok
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setError('There was an error submitting your email. Please try again.');
-    } finally {
-      setIsSubmitted(true);
-      setIsLoading(false);
-    }
-  }
 }
 
 export default LeadMagnet;

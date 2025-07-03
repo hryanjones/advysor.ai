@@ -72,16 +72,6 @@
     border-image: linear-gradient(90deg, #00d1ff, #6c47ff, #e84cff) 1;
   }
 
-  /* Benefit list padding fix */
-  .benefit-list {
-    margin: 24px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-left: 0;
-    list-style: none;
-  }
-
   /* Icon ring margin */
   .stage-card {
     margin-bottom: 24px;
