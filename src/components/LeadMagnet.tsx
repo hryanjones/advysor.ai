@@ -1,5 +1,5 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { CheckCircle, AlertCircle, Mail, UserRoundPlus } from 'lucide-react';
+import { useState, type FormEvent, type ChangeEvent, useEffect } from 'react';
+import { CheckCircle, AlertCircle, Mail, UserRoundPlus, Copy, Check } from 'lucide-react';
 import Button from './ui/Button';
 import { useLinks } from '../contexts/LinkContext';
 
@@ -10,22 +10,54 @@ const formInputMap = {
   howUse: 'entry.1018956477',
   howHeard: 'entry.83165922',
   wantToHelp: 'entry.1115098463',
+  referredBy: 'entry.1457512683',
 };
 
 const FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSfJWzvDZ2UPbu8mFOrU1gWR26PLHTm__csZTosOq2jYBFnB6Q/formResponse';
 
+const LEAD_MAGNET_ANCHOR = 'lead-magnet';
+
 type FormStep = 'initial' | 'required_submitted' | 'all_submitted';
+
+// Utility functions for referral encoding/decoding
+const encodeReferral = (email: string): string => {
+  return btoa(email).replace(/[+/=]/g, (char) => {
+    switch (char) {
+      case '+':
+        return '-';
+      case '/':
+        return '_';
+      case '=':
+        return '';
+      default:
+        return char;
+    }
+  });
+};
+
+const decodeReferral = (encoded: string): string => {
+  try {
+    const base64 = encoded.replace(/[-_]/g, (char) => (char === '-' ? '+' : '/'));
+    const padded = base64 + '='.repeat((4 - (base64.length % 4)) % 4);
+    return atob(padded);
+  } catch {
+    return '';
+  }
+};
 
 function LeadMagnet() {
   // UI state
   const [formStep, setFormStep] = useState<FormStep>('initial');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [referralLink, setReferralLink] = useState<string>('');
+  const [copied, setCopied] = useState(false);
 
   // Form data
   const [email, setEmail] = useState('');
   const [whatBuilding, setWhatBuilding] = useState('');
+  const [referredBy, setReferredBy] = useState<string>('');
 
   // Checkboxes state
   const [howUseOptions, setHowUseOptions] = useState<Record<string, boolean>>({
@@ -55,6 +87,36 @@ function LeadMagnet() {
 
   const links = useLinks();
 
+  // Check for referral parameter on mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refParam = urlParams.get('ref');
+    if (refParam) {
+      const decodedEmail = decodeReferral(refParam);
+      if (decodedEmail) {
+        setReferredBy(decodedEmail);
+      }
+    }
+  }, []);
+
+  const generateReferralLink = (userEmail: string): string => {
+    const encodedEmail = encodeReferral(userEmail);
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set('ref', encodedEmail);
+    currentUrl.hash = LEAD_MAGNET_ANCHOR; // Ensure it points to the lead magnet section
+    return currentUrl.toString();
+  };
+
+  const copyReferralLink = async () => {
+    try {
+      await navigator.clipboard.writeText(referralLink);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
+  };
+
   const handleRequiredSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -64,11 +126,19 @@ function LeadMagnet() {
       const formData = new FormData();
       formData.append(formInputMap.email, email);
 
+      if (referredBy) {
+        formData.append(formInputMap.referredBy, referredBy);
+      }
+
       await fetch(FORM_URL, {
         method: 'POST',
         mode: 'no-cors',
         body: formData,
       });
+
+      // Generate referral link for this user
+      const newReferralLink = generateReferralLink(email);
+      setReferralLink(newReferralLink);
 
       setFormStep('required_submitted');
     } catch (error) {
@@ -96,6 +166,10 @@ function LeadMagnet() {
     try {
       const formData = new FormData();
       formData.append(formInputMap.email, email);
+
+      if (referredBy) {
+        formData.append(formInputMap.referredBy, referredBy);
+      }
 
       if (whatBuilding) {
         formData.append(formInputMap.whatBuilding, whatBuilding);
@@ -146,7 +220,7 @@ function LeadMagnet() {
 
   return (
     <section
-      id="lead-magnet"
+      id={LEAD_MAGNET_ANCHOR}
       className="section-padding mt-10 py-10 bg-gradient-to-r from-indigo/20 to-magenta/20 border-y border-white/10"
     >
       <div className="container-max">
@@ -161,6 +235,12 @@ function LeadMagnet() {
               <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed subhead">
                 Join the waitlist for our Pro version launch and earn 1 month free for each friend you invite! (Limit 3)
               </p>
+
+              {referredBy && (
+                <div className="mb-4 p-3 bg-mint/10 border border-mint/20 text-mint rounded-lg text-sm">
+                  🎉 You were referred by a friend!
+                </div>
+              )}
 
               {formStep === 'initial' && (
                 <form onSubmit={handleRequiredSubmit} data-beta-form>
@@ -204,12 +284,33 @@ function LeadMagnet() {
                     <CheckCircle className="h-8 w-8 text-mint mr-3" />
                     <div>
                       <div className="text-2xl font-semibold">👋 Thanks! </div>
-                      <p>
-                        You're on the list.
-                        {/* Use this referral link to invite others */}
-                      </p>
+                      <p>You're on the list. </p>
+                      {referralLink && (
+                        <p>
+                          Use this{' '}
+                          <a
+                            type="link"
+                            href={referralLink}
+                            className="text-mint hover:underline underline-offset-2 transition-colors"
+                            title="Copy referral link"
+                          >
+                            referral link
+                          </a>{' '}
+                          to invite friends{' '}
+                          <button
+                            type="button"
+                            onClick={copyReferralLink}
+                            className="inline-flex items-center gap-1 px-2 py-0.5 bg-mint/20 hover:bg-mint/30 text-mint rounded transition-colors text-xs ml-1"
+                            title="Copy referral link"
+                          >
+                            {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                            {copied ? 'Copied!' : 'copy'}
+                          </button>
+                        </p>
+                      )}
                     </div>
                   </div>
+
                   <p className="text-gray-300 mb-6">
                     Meanwhile →{' '}
                     <a
