@@ -17,7 +17,7 @@ export interface AppLinks {
     twitter: string;
     linkedin: string;
     instagram: string;
-    discord: string; // Placeholder for Discord link
+    reddit: string;
   };
   contact: {
     email: string;
@@ -46,7 +46,7 @@ const appLinks: AppLinks = {
     twitter: 'https://x.com/ADVYSORAI',
     linkedin: 'https://www.linkedin.com/company/advysorai/',
     instagram: 'https://www.instagram.com/advysor.ai/',
-    discord: 'https://discord.gg/GTn9NhUd',
+    reddit: 'https://www.reddit.com/r/ADVYSOR/',
   },
   contact: {
     email: 'mailto:contact@advysor.ai',

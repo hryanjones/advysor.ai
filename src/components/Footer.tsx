@@ -1,7 +1,7 @@
 import 'react';
 import { Twitter, Linkedin, Youtube, Mail } from 'lucide-react';
 import { useLinks } from '../contexts/LinkContext';
-import DiscordIcon from './ui/DiscordIcon';
+import RedditIcon from './ui/RedditIcon';
 
 const Footer = () => {
   const links = useLinks();
@@ -31,8 +31,8 @@ const Footer = () => {
               <a href={links.youtube.channel} className="text-gray-400 hover:text-mint transition-colors">
                 <Youtube className="h-4 w-4" />
               </a>
-              <a href={links.social.discord} className="text-gray-400 hover:text-mint transition-colors">
-                <DiscordIcon />
+              <a href={links.social.reddit} className="text-gray-400 hover:text-mint transition-colors">
+                <RedditIcon />
               </a>
               <a href={links.contact.email} className="text-gray-400 hover:text-mint transition-colors">
                 <Mail className="h-4 w-4" />
