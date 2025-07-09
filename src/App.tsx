@@ -10,6 +10,7 @@ import VlogContent from './components/VlogContent';
 import PricingCTA from './components/PricingCTA';
 import Footer from './components/Footer';
 import { LinkProvider } from './contexts/LinkContext';
+import MeetTheFounders from './components/MeetTheFounders';
 
 export default function App() {
   // Handle anchor navigation on page load
@@ -41,6 +42,7 @@ export default function App() {
         <LeadMagnet />
         <VlogContent />
         <PricingCTA />
+        <MeetTheFounders />
         <Footer />
       </div>
     </LinkProvider>

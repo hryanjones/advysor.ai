@@ -73,7 +73,7 @@ const HowItWorks = () => {
 
               <div className="flex items-center space-x-4">
                 <img
-                  src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+                  src="/Maricar%20Helmer_cropped.jpg"
                   alt="Maricar L. Helmer"
                   className="w-12 h-12 rounded-full object-cover"
                   loading="lazy"

@@ -8,23 +8,20 @@ const SocialProof = () => {
         'Using ADVYSOR has saved me countless hours in validating new tech ideas and helped me understand how to build a business around them.',
       name: 'Scharief Salem',
       role: 'CTO, Xai Foundation',
-      avatar:
-        'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/Scharief%20Salem%20Ahmed.png',
     },
     {
       quote:
         'ADVYSOR helped me think through the pros and cons of rebranding, structure a tiered model, and map a funnel strategy for client acquisition. In hindsight—obvious and brilliant.',
       name: 'Craig D. Wescoe',
       role: 'Founder',
-      avatar:
-        'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/Craig%20Wescoe.png',
     },
     {
       quote: 'Amazing product! … just planned out my whole GTM for Dallas.',
       name: 'Sarah B. Nadimpalli RN, PhD',
       role: 'Founder',
-      avatar:
-        'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/Sarah%20B%20Nadimpalli_cropped.png',
     },
   ];
 
