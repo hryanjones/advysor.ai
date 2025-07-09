@@ -6,7 +6,7 @@ import RedditIcon from './ui/RedditIcon';
 const Footer = () => {
   const links = useLinks();
   return (
-    <footer className="bg-navy/90 border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-navy/90 border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 mt-12">
       <div className="container-max">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}

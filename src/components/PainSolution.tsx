@@ -23,9 +23,9 @@ const PainSolution = () => {
     },
     {
       icon: DollarSign,
-      title: 'Investor-ready outputs',
+      title: 'Investor-ready clarity',
       description:
-        "Look professional when it counts. From one-click executive summaries to polished decks, you'll impress investors with credible, well-structured materials.",
+        'Build trust and credibility fast. Generate clear, structured executive summaries, pitch-deck outlines, and key talking points that impress investors with strategic insight.',
     },
   ];
 

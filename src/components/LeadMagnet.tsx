@@ -218,6 +218,14 @@ function LeadMagnet() {
     }
   };
 
+  // Referral steps data
+  const referralSteps = [
+    'Sign up for our waitlist',
+    'Share the waitlist referral link with a friend',
+    'Your friend signs up for waitlist',
+    'You get 1 month of pro free when we launch per friend (Limit 3)',
+  ];
+
   return (
     <section
       id={LEAD_MAGNET_ANCHOR}
@@ -328,36 +336,6 @@ function LeadMagnet() {
                   </p>
                 </div>
               )}
-
-              <div className="mt-8 bg-white/5 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-white mb-4">How the referral works:</h4>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm text-gray-300">
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-gradient-to-r from-cyan to-indigo rounded-full flex items-center justify-center text-white font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
-                      1
-                    </div>
-                    <span>Sign up for our waitlist</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-gradient-to-r from-indigo to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
-                      2
-                    </div>
-                    <span>Share the waitlist referral link with a friend</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-magenta rounded-full flex items-center justify-center text-white font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
-                      3
-                    </div>
-                    <span>Your friend signs up for waitlist</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-gradient-to-r from-magenta to-mint rounded-full flex items-center justify-center text-white font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
-                      4
-                    </div>
-                    <span>You get 1 month of pro free when we launch per friend (Limit 3)</span>
-                  </div>
-                </div>
-              </div>
 
               {formStep === 'required_submitted' && (
                 <div className="mt-16 max-w-2xl mx-auto">
@@ -523,6 +501,20 @@ function LeadMagnet() {
                   </form>
                 </div>
               )}
+
+              <div className="mt-8 bg-white/5 rounded-lg p-6">
+                <h4 className="text-lg font-semibold text-white mb-4">How the referral works:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm text-gray-300">
+                  {referralSteps.map((step, index) => (
+                    <div className="flex items-start" key={`step-${index}`}>
+                      <div className="w-8 h-8 bg-gradient-brand text-navy rounded-full flex items-center justify-center font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
+                        {index + 1}
+                      </div>
+                      <span>{step}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
