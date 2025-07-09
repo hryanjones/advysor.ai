@@ -318,19 +318,6 @@ function LeadMagnet() {
                       )}
                     </div>
                   </div>
-
-                  <p className="text-gray-300 mb-6">
-                    Meanwhile →{' '}
-                    <a
-                      href={links.chatGPT.tryAdvysor}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="text-mint hover:underline"
-                      data-poc-cta
-                    >
-                      Try ADVYSOR now
-                    </a>
-                  </p>
                 </div>
               )}
 
@@ -497,6 +484,23 @@ function LeadMagnet() {
                     </div>
                   </form>
                 </div>
+              )}
+
+              {formStep === 'all_submitted' && (
+                <p className="flex justify-center gap-4 items-center text-gray-300 mt-12 mb-6">
+                  Meanwhile →{' '}
+                  <Button
+                    as="a"
+                    href={links.chatGPT.tryAdvysor}
+                    external
+                    variant="primary"
+                    data-poc-cta
+                    aria-label="Open live AI chat in new tab"
+                    size="sm"
+                  >
+                    Try ADVYSOR on ChatGPT
+                  </Button>
+                </p>
               )}
 
               <div>
