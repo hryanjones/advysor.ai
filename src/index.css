@@ -31,7 +31,7 @@
   }
 
   .section-padding {
-    @apply pt-20 px-4 sm:px-6 lg:px-8;
+    @apply pt-20 pb-6 px-4 sm:px-6 lg:px-8;
   }
 
   .section-header {
@@ -64,12 +64,6 @@
   /* Stage cards - hide neon line */
   .stage-card::after {
     display: none;
-  }
-
-  /* Lead magnet top gradient border */
-  .leadmagnet {
-    border-top: 3px solid;
-    border-image: linear-gradient(90deg, #00d1ff, #6c47ff, #e84cff) 1;
   }
 
   /* Icon ring margin */

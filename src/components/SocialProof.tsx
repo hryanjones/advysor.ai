@@ -6,7 +6,7 @@ const SocialProof = () => {
     {
       quote:
         'Using ADVYSOR has saved me countless hours in validating new tech ideas and helped me understand how to build a business around them.',
-      name: 'Scharief Salem',
+      name: 'Scharief Salem Ahmed',
       role: 'CTO, Xai Foundation',
       avatar: '/Scharief%20Salem%20Ahmed.png',
     },
@@ -68,7 +68,7 @@ const SocialProof = () => {
         <div className="flex justify-center mt-12">
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
-              <span className="text-4xl font-bold gradient-text text-shadow-lg mr-3">4.6/5.0</span>
+              <span className="text-4xl font-bold gradient-text text-shadow-lg mr-3">4.7/5.0</span>
               <div className="flex">
                 {[...Array(4)].map((_, i) => (
                   <Star key={i} className="h-8 w-8 text-yellow-400 fill-current" />

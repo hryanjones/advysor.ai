@@ -39,8 +39,8 @@ export default function App() {
         <JourneyStages />
         <SocialProof />
         <HowItWorks />
-        <LeadMagnet />
         <VlogContent />
+        <LeadMagnet />
         <PricingCTA />
         <MeetTheFounders />
         <Footer />

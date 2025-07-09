@@ -18,7 +18,7 @@ const PricingCTA = () => {
               </h2>
 
               <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Chat live with ADVYSOR. Instant access if you already have an ChatGPT account, and a less than a minute
+                Chat live with ADVYSOR. Instant access if you already have a ChatGPT account, and a less than a minute
                 signup if you don't.
               </p>
 

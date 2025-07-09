@@ -52,9 +52,7 @@ const HowItWorks = () => {
                 <div className="flex-1">
                   <div className="flex items-center mb-3">
                     <step.icon className="h-6 w-6 text-mint mr-3" />
-                    <h3 className="text-xl font-bold text-white group-hover:text-mint transition-colors">
-                      {step.title}
-                    </h3>
+                    <h3 className="text-xl font-bold text-white transition-colors">{step.title}</h3>
                   </div>
                   <p className="text-gray-400 leading-relaxed">{step.description}</p>
                 </div>

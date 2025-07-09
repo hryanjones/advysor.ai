@@ -227,13 +227,10 @@ function LeadMagnet() {
   ];
 
   return (
-    <section
-      id={LEAD_MAGNET_ANCHOR}
-      className="section-padding mt-10 py-10 bg-gradient-to-r from-indigo/20 to-magenta/20 border-y border-white/10"
-    >
+    <section id={LEAD_MAGNET_ANCHOR} className="section-padding pb-12 bg-gradient-to-b from-navy to-navyLight">
       <div className="container-max">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="card-glass p-12 rounded-2xl relative overflow-hidden leadmagnet">
+          <div className="card-glass p-12 relative overflow-hidden">
             <div className="relative z-10">
               <h2 className="text-4xl text-balance md:text-5xl font-bold text-white mb-6">
                 <span className="text-shadow-lg">Get Early Access to Your</span>{' '}
@@ -241,7 +238,7 @@ function LeadMagnet() {
               </h2>
 
               <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed subhead">
-                Join the waitlist for our Pro version launch and earn 1 month free for each friend you invite!
+                Join the waitlist for our Pro version launch and earn 1 month free for each friend you invite! (Limit 3)
               </p>
 
               {referredBy && (
@@ -502,17 +499,25 @@ function LeadMagnet() {
                 </div>
               )}
 
-              <div className="mt-8 bg-white/5 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-white mb-4">How the referral works:</h4>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm text-gray-300">
-                  {referralSteps.map((step, index) => (
-                    <div className="flex items-start" key={`step-${index}`}>
-                      <div className="w-8 h-8 bg-gradient-brand text-navy rounded-full flex items-center justify-center font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
-                        {index + 1}
+              <div>
+                <div className="mt-8 bg-white/5 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-white mb-4">How the referral works:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm text-gray-300">
+                    {referralSteps.map((step, index) => (
+                      <div className="flex items-start" key={`step-${index}`}>
+                        <div className="w-8 h-8 bg-gradient-brand text-navy rounded-full flex items-center justify-center font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
+                          {index + 1}
+                        </div>
+                        <span>{step}</span>
                       </div>
-                      <span>{step}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                </div>
+                <div className="mt-6 text-center">
+                  <p className="text-xs text-gray-400">
+                    Waitlist access is limited. Referral rewards apply when we launch ADVYSOR Pro. Maximum 3 free months
+                    per user.
+                  </p>
                 </div>
               </div>
             </div>

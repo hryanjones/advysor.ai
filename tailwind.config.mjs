@@ -9,6 +9,7 @@ export default {
       },
       colors: {
         navy: '#1A133D',
+        navyLight: '#2D1B69',
         cyan: '#00D1FF',
         indigo: '#6C47FF',
         magenta: '#E84CFF',

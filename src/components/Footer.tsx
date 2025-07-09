@@ -45,13 +45,13 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-3 text-sm">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#how-it-works" className="text-gray-400 hover:text-mint transition-colors text-sm">
-                  How It Works
+                <a href="#testimonials" className="text-gray-400 hover:text-mint transition-colors text-sm">
+                  Testimonials
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-gray-400 hover:text-mint transition-colors text-sm">
-                  Testimonials
+                <a href="#how-it-works" className="text-gray-400 hover:text-mint transition-colors text-sm">
+                  How It Works
                 </a>
               </li>
               <li>
