@@ -43,7 +43,10 @@ const Hero = () => {
           <div className="flex justify-center">
             <div className="max-w-5xl w-full">
               <div className="relative">
-                <div className="card-glass p-6 rounded-2xl">
+                <div
+                  className="card-glass p-6 rounded-2xl opacity-90 hover:opacity-100 transform hover:scale-[1.01] transition-all duration-300 cursor-not-allowed"
+                  role="presentation"
+                >
                   <div className="bg-navy/80 rounded-lg p-6">
                     {/* Browser Header */}
                     <div className="flex items-center justify-between mb-6">
@@ -79,18 +82,18 @@ const Hero = () => {
 
                       {/* Action Buttons */}
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <button className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
+                        <div className="bg-white/10 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
                           Help me validate my startup idea
-                        </button>
-                        <button className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
+                        </div>
+                        <div className="bg-white/10 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
                           Create a GTM strategy for my product
-                        </button>
-                        <button className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
+                        </div>
+                        <div className="bg-white/10 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
                           Build a pitch deck for investors
-                        </button>
-                        <button className="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
+                        </div>
+                        <div className="bg-white/10 border border-white/20 rounded-lg p-3 text-sm text-gray-300 transition-colors">
                           Draft a product requirements document (PRD)
-                        </button>
+                        </div>
                       </div>
 
                       {/* Chat Input */}
@@ -127,6 +130,10 @@ const Hero = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="text-center mt-6">
+            <p className="text-sm text-gray-400">Example of what the ADVYSOR chat interface looks like.</p>
           </div>
         </div>
       </div>
