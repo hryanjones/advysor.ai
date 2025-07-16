@@ -19,8 +19,8 @@ const Hero = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-300 mb-6 leading-relaxed max-w-4xl mx-auto">
-              ADVYSOR is your AI co-founder, helping with idea validation, MVP scoping, customer growth, fundraising,
-              and more. Instantly.
+              ADVYSOR is your AI Co-Founder - instantly guiding bootstrappers, indie hackers, and founders from idea
+              validation and MVP creation, to growth and fundraising.
             </p>
 
             {/* CTA Row - Matching Wireframe */}
