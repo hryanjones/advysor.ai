@@ -33,7 +33,7 @@ export interface AppLinks {
 // Create the links object with all the URLs used across the app
 const appLinks: AppLinks = {
   chatGPT: {
-    tryAdvysor: 'https://chatgpt.com/g/g-67f1e806e6d88191bea42e0ffc617a39-startup-co-founder-ai',
+    tryAdvysor: 'https://chatgpt.com/g/g-68907db05d4081919d925e317b8f8f61-advysor-ai',
   },
   youtube: {
     channel: 'https://www.youtube.com/@advysoralex',
