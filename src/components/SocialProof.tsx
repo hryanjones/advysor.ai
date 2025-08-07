@@ -39,8 +39,8 @@ const SocialProof = () => {
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="card-glass p-8">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.name} className="card-glass p-8">
               <blockquote className="text-lg text-white mb-6 leading-relaxed italic">"{testimonial.quote}"</blockquote>
 
               <div className="flex items-center space-x-4">
@@ -55,9 +55,11 @@ const SocialProof = () => {
                   <div className="text-gray-400 text-sm">{testimonial.role}</div>
                 </div>
                 <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
+                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
                 </div>
               </div>
             </div>
@@ -70,9 +72,10 @@ const SocialProof = () => {
             <div className="flex items-center justify-center mb-2">
               <span className="text-4xl font-bold gradient-text text-shadow-lg mr-3">4.7/5.0</span>
               <div className="flex">
-                {[...Array(4)].map((_, i) => (
-                  <Star key={i} className="h-8 w-8 text-yellow-400 fill-current" />
-                ))}
+                <Star className="h-8 w-8 text-yellow-400 fill-current" />
+                <Star className="h-8 w-8 text-yellow-400 fill-current" />
+                <Star className="h-8 w-8 text-yellow-400 fill-current" />
+                <Star className="h-8 w-8 text-yellow-400 fill-current" />
                 <div className="relative">
                   <Star className="h-8 w-8 text-gray-400" />
                   <div className="absolute inset-0 overflow-hidden" style={{ width: '60%' }}>

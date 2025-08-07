@@ -70,8 +70,8 @@ const PainSolution = () => {
             </p>
 
             <div className="space-y-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start group">
+              {benefits.map((benefit) => (
+                <div key={benefit.title} className="flex items-start group">
                   <div className="bg-gradient-brand/20 rounded-lg px-3 mr-4 group-hover:bg-gradient-brand/30 transition-colors">
                     <benefit.icon className="h-6 w-6 text-mint" />
                   </div>

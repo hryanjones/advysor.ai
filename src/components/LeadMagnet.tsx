@@ -508,7 +508,7 @@ function LeadMagnet() {
                   <h4 className="text-lg font-semibold text-white mb-4">How the referral works:</h4>
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm text-gray-300">
                     {referralSteps.map((step, index) => (
-                      <div className="flex items-start" key={`step-${index}`}>
+                      <div className="flex items-start" key={step}>
                         <div className="w-8 h-8 bg-gradient-brand text-navy rounded-full flex items-center justify-center font-bold text-sm mr-3 mt-0.5 flex-shrink-0 shadow-lg">
                           {index + 1}
                         </div>

@@ -31,9 +31,9 @@ const VlogContent = () => {
         </div>
 
         <div className="flex justify-center mb-12">
-          {episodes.map((episode, index) => (
+          {episodes.map((episode) => (
             <a
-              key={index}
+              key={episode.title}
               href={episode.url}
               target="_blank"
               rel="noopener noreferrer"

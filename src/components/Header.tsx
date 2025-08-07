@@ -34,7 +34,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden p-4 border-t border-white/10" onClick={() => setIsMenuOpen(false)}>
+          <div className="md:hidden p-4 border-t border-white/10">
             <nav className="flex flex-col space-y-4">{navContents(links)}</nav>
           </div>
         )}

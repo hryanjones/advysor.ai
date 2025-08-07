@@ -51,8 +51,8 @@ const JourneyStages = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 relative">
-          {stages.map((stage, index) => (
-            <div key={index} className="flex md:flex-col text-center group">
+          {stages.map((stage) => (
+            <div key={stage.title} className="flex md:flex-col text-center group">
               {/* Icon */}
               <div className="relative mr-4 md:mb-8 md:m4-0 group-hover:scale-105">
                 <div
