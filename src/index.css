@@ -50,32 +50,9 @@
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
   }
 
-  /* Hero overlay panel */
-  .overlay-panel {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6;
-  }
-
   /* Problem card skew */
   .problem-card {
     transform: rotate(-3deg) skewY(2deg);
     transform-origin: top left;
   }
-
-  /* Stage cards - hide neon line */
-  .stage-card::after {
-    display: none;
-  }
-
-  /* Icon ring margin */
-  .stage-card {
-    margin-bottom: 24px;
-  }
-}
-
-.testimonial-carousel {
-  scroll-snap-type: x mandatory;
-}
-
-.testimonial-slide {
-  scroll-snap-align: start;
 }
